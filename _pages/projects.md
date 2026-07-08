@@ -1,65 +1,36 @@
 ---
 layout: page
-title: projects
 permalink: /projects/
-description: A growing collection of your cool projects.
+title: Projects
+description:
 nav: true
 nav_order: 3
-display_categories: [work, fun]
-horizontal: false
 ---
 
-<!-- pages/projects.md -->
-<div class="projects">
-{% if site.enable_project_categories and page.display_categories %}
-  <!-- Display categorized projects -->
-  {% for category in page.display_categories %}
-  <a id="{{ category }}" href=".#{{ category }}">
-    <h2 class="category">{{ category }}</h2>
-  </a>
-  {% assign categorized_projects = site.projects | where: "category", category %}
-  {% assign sorted_projects = categorized_projects | sort: "importance" %}
-  <!-- Generate cards for each project -->
-  {% if page.horizontal %}
-  <div class="container">
-    <div class="row row-cols-1 row-cols-md-2">
-    {% for project in sorted_projects %}
-      {% include projects_horizontal.liquid %}
-    {% endfor %}
-    </div>
-  </div>
-  {% else %}
-  <div class="row row-cols-1 row-cols-md-3">
-    {% for project in sorted_projects %}
-      {% include projects.liquid %}
-    {% endfor %}
-  </div>
-  {% endif %}
-  {% endfor %}
+<h2 class="section-divider">On-going projects</h2>
 
-{% else %}
+##### **Efficient Hyperscale LLM Inference System based on Scale-out Context Memory**<br>
+- 스케일 아웃 컨텍스트 메모리 기반 고효율 초거대 LLM 추론 시스템
+- 한국연구재단, 기초연구실, 2026.07 ~ 2029.06
 
-<!-- Display projects without categories -->
+##### **Exploring Next-Generation Approaches Beyond Rule-Based System Software**<br>
+- 규칙 기반 시스템 소프트웨어의 한계 극복을 위한 차세대 방법론 탐색
+- 아주대학교, 기본연구활성화연구비, 2025.10 ~ 2028.09
 
-{% assign sorted_projects = site.projects | sort: "importance" %}
+##### **Learning-Based Electric-Efficient Processor Management for Mobile Devices**<br>
+- 모바일 시스템의 학습 기반 전기-효율적 프로세서 관리
+- 아주대학교, 교내 정착연구비, 2025.09 ~ 2027.08
 
-  <!-- Generate cards for each project -->
+##### **Next-Generation Super-Intelligence Network Convergence Group**<br>
+- 차세대 초지능 네트워크 융합 교육연구단
+- 한국연구재단, BK21, 2020.09 ~ 2027.08
 
-{% if page.horizontal %}
+<h2 class="section-divider">Completed projects</h2>
 
-  <div class="container">
-    <div class="row row-cols-1 row-cols-md-2">
-    {% for project in sorted_projects %}
-      {% include projects_horizontal.liquid %}
-    {% endfor %}
-    </div>
-  </div>
-  {% else %}
-  <div class="row row-cols-1 row-cols-md-3">
-    {% for project in sorted_projects %}
-      {% include projects.liquid %}
-    {% endfor %}
-  </div>
-  {% endif %}
-{% endif %}
-</div>
+##### **Learning-Based Electric-Efficient Processor Management for Mobile Devices**<br>
+- 모바일 시스템의 학습 기반 전기-효율적 프로세서 관리
+- 박사후국내연수, 한국연구재단, 2024.09 ~ 2025.09
+
+##### **Development of S/W based heterogeneous battery management technique for the battery performance of mobile systems**<br>
+- 모바일 시스템의 배터리 성능 향상을 위한 S/W 기반 다종류 혼용 사용 기법 개발
+- 모험연구과제, KAIST, 2021.04 ~ 2021.12

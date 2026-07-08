@@ -1,0 +1,386 @@
+/*******************************************************************************
+ * Themes
+ *
+ * Local override of al_folio_core's _sass/_themes.scss.
+ * enable_darkmode is false site-wide, so the dark theme block and the
+ * #light-toggle icon CSS were dropped as dead code (see _config.yml).
+ * Custom tweaks below the :root block: bold-in-code fix, profile image
+ * sizing, and navbar visibility for the bootstrap-compat layer.
+ ******************************************************************************/
+@use "variables" as v;
+@use "sass:color";
+
+// Two knobs for every navbar->title / title->divider gap on the site.
+// See the "Navbar -> title -> divider spacing" block below for how they're used.
+//
+// Mobile vs desktop differ deliberately: body.fixed-top-nav's padding-top is
+// pinned at 57px (see below), but the mobile navbar (hamburger only) is
+// really ~44px tall, so mobile pages carry ~13px of invisible dead zone at
+// the top that desktop doesn't have. To make the VISIBLE gaps read the same,
+// mobile keeps a small container margin (dead zone tops it up) and a larger
+// divider gap to match; desktop uses one uniform value for both.
+:root {
+  --page-top-gap: 1rem; /* container margin below navbar (mobile) */
+  --divider-gap: 1.75rem; /* gap above every divider (mobile): ~= 13px dead zone + 1rem, i.e. what the top visually reads as */
+}
+
+@media (min-width: 576px) {
+  :root {
+    --page-top-gap: 1.4rem; /* desktop: +40% over the old 1rem */
+    --divider-gap: 1.4rem;
+  }
+}
+
+/* Long pages (publications) grow a vertical scrollbar; short pages don't.
+   The scrollbar steals ~15px of viewport, so the container -- and therefore
+   every divider line -- rendered 15px narrower on publications than on the
+   other pages (measured: 459px vs 474px at a 390px window). Reserve the
+   gutter on every page so all pages share the exact same content width. */
+html {
+  scrollbar-gutter: stable;
+}
+
+:root {
+  color-scheme: light;
+  --global-bg-color: #{v.$white-color};
+  --global-code-bg-color: rgba(38, 152, 186, 0.05);
+  --global-text-color: #{v.$black-color};
+  --global-text-color-light: #{v.$grey-color};
+  --global-theme-color: #2698ba;
+  --global-hover-color: #2698ba;
+  --global-hover-text-color: #{v.$white-color};
+  --global-footer-bg-color: #{v.$grey-color-dark};
+  --global-footer-text-color: #{v.$grey-color-light};
+  --global-footer-link-color: #{v.$white-color};
+  --global-distill-app-color: #{v.$grey-color};
+  --global-divider-color: rgba(0, 0, 0, 0.25);
+  --global-card-bg-color: #{v.$white-color};
+  --global-highlight-color: #{v.$red-color-dark};
+  --global-back-to-top-bg-color: rgba(
+    #{color.channel(v.$black-color, "red", v.$space: rgb)},
+    #{color.channel(v.$black-color, "green", v.$space: rgb)},
+    #{color.channel(v.$black-color, "blue", v.$space: rgb)},
+    0.4
+  );
+  --global-back-to-top-text-color: #{v.$white-color};
+  --global-newsletter-bg-color: #{v.$white-color};
+  --global-newsletter-text-color: #{v.$black-color};
+
+  --global-tip-block: #42b983;
+  --global-tip-block-bg: #e2f5ec;
+  --global-tip-block-text: #215d42;
+  --global-tip-block-title: #359469;
+  --global-warning-block: #e7c000;
+  --global-warning-block-bg: #fff8d8;
+  --global-warning-block-text: #6b5900;
+  --global-warning-block-title: #b29400;
+  --global-danger-block: #c00;
+  --global-danger-block-bg: #ffe0e0;
+  --global-danger-block-text: #600;
+  --global-danger-block-title: #c00;
+
+  .only-light {
+    display: block;
+  }
+
+  .only-dark {
+    display: none;
+  }
+
+  #back-to-top {
+    color: var(--global-back-to-top-text-color);
+    background: var(--global-back-to-top-bg-color);
+    bottom: v.$back-to-top-bottom;
+    right: v.$back-to-top-right;
+    height: v.$back-to-top-height;
+    width: v.$back-to-top-width;
+    z-index: v.$back-to-top-z-index;
+  }
+}
+
+h2.post-title {
+  font-weight: 700;
+  text-align: center;
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+article p code {
+  color: var(--global-theme-color);
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 87.5%;
+  font-weight: 300;
+  line-height: 1.5;
+  padding: 0.2rem 0.4rem;
+}
+
+article p code b,
+article p code strong {
+  font-weight: 700 !important;
+}
+
+ul ul,
+ol ul,
+ul ol,
+ol ol {
+  margin-bottom: 0;
+}
+
+.publications .badge {
+  display: inline-block;
+  border-radius: 0.25rem;
+  padding: 0.2em 0.4em; /* vertical padding trimmed 10% from .25em */
+  font-size: 77.5%;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* al_folio_core's _publications.scss sets .abbr abbr { margin-bottom: 0.5rem; },
+   the vertical gap between stacked venue badges (entry.abbr/abbr2/abbr3 in
+   _layouts/bib.liquid). Trimmed to 0.35rem, then another 20% per request.
+   max-width shaves 10% off the badge's horizontal size; it has to be
+   max-width, not width, because the shim's `.w-100 { width:100% !important }`
+   lives in a cascade layer and beats any unlayered width override. */
+.abbr abbr {
+  margin-bottom: 0.0rem !important;
+  max-width: 90%;
+}
+
+/* Each bib entry is a Bootstrap-shim .row (margin-left/right: -15px) sitting
+   directly in .publications, and its badge column has BOTH .col and .col-sm-2:
+   the shim's `.col { padding-left/right: 0 }` wins over .col-sm-2's 15px
+   gutter, so badges overhung the container's left edge by 15px -- past the
+   end of the year dividers, which made the dividers look shorter than the
+   content on this page only. Flatten the grid inside .publications so every
+   entry spans exactly the container width (== divider width == every other
+   page), and re-add a small gutter between badges and text by hand. */
+.publications .row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.publications .row > .col,
+.publications .row > [class*="col-"] {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.publications .row > .abbr {
+  padding-right: 1rem !important;
+}
+
+/* Align news body text with the publication title/author column. The selected
+   publications layout reserves col-sm-2 (2/12 == 1/6) for venue badges before
+   the text column, so News uses the same date-column width. */
+.news .news-date {
+  width: calc(100% / 6);
+  white-space: nowrap;
+}
+
+.news .news-content {
+  padding-left: 0 !important;
+}
+
+/* 모바일에서 프로필 이미지가 너무 커지지 않게 제한 */
+.profile img {
+  /* 데스크톱/모바일 공통: 유동 + 상한/하한 */
+  /* al_folio_core's _layout.scss also sets `.profile img { width: 100% }`
+     with identical specificity and loads after this file, so !important
+     is needed here to win the cascade. */
+  width: clamp(110px, 35vw, 170px) !important;
+  height: auto;
+}
+
+/* 아주 작은 화면에서 조금 더 강하게 제한 */
+@media (max-width: 576px) {
+  .profile {
+    float: none;
+    margin: 0 auto 1rem;
+    text-align: center;
+  }
+  .profile img {
+    max-width: 160px; /* 하드 캡 */
+    width: 40vw !important; /* 유동 캡 */
+  }
+}
+
+/* Keep the v1 navbar visible when the Bootstrap compatibility layer is enabled. */
+@media (min-width: 576px) {
+  .navbar-expand-sm .navbar-collapse-main {
+    display: flex !important;
+    visibility: visible !important;
+  }
+}
+
+.navbar-collapse-main.show {
+  visibility: visible !important;
+}
+
+.navbar-brand {
+  display: none;
+}
+
+/* Match publications' h2.bibliography: divider above the heading text,
+   not below (al_folio_core's .projects h2.category defaults to border-bottom). */
+.projects h2.category {
+  border-bottom: none !important;
+  border-top: 1px solid var(--global-divider-color) !important;
+  padding-top: 0.8rem !important;
+  margin-top: var(--divider-gap) !important;
+}
+
+/* Same top margin as .projects h2.category / .section-divider below, so every
+   page's "gap above a divider" matches, whether that divider is the page's
+   very first one or a later section header. */
+.publications h2.bibliography {
+  padding-top: 0.8rem !important;
+  margin-top: var(--divider-gap) !important;
+}
+
+/* The gem's _publications.scss puts margin-top: 2rem on the .publications
+   wrapper itself; it margin-collapses with the first h2.bibliography's own
+   margin and, being the larger of the two, always won -- which is why the
+   publications page's title->divider gap never matched the other pages.
+   Zero the wrapper so h2.bibliography's --divider-gap is the only voice. */
+.publications {
+  margin-top: 0 !important;
+}
+
+/* --- Navbar -> title -> divider spacing -------------------------------------
+ *
+ * ROOT CAUSE of the earlier oversized, un-shrinkable top gap: al_folio_core's
+ * compiled assets/css/tailwind.css ships a Bootstrap grid shim inside
+ * `@layer components`:  .mt-5 { margin-top: 3rem !important; }  and
+ * default.liquid wrapped every page in <div class="container mt-5">. Fighting
+ * a Tailwind utility class name from plain (unlayered) Sass is unreliable --
+ * cascade-layer rules for !important are easy to lose even with !important on
+ * our side. So instead of overriding `.mt-5`, _layouts/default.liquid is now a
+ * local override that drops that class entirely and uses our own
+ * `.page-container` class, which Tailwind/Bootstrap can never contest.
+ *
+ * preflight is OFF and no partial resets margins, so h2/p titles keep raw UA
+ * margins (h2 ~0.83em, p ~1em) plus the gem's own `.post-description` margin.
+ * Zero all of those so only our two gap variables determine the visible gaps.
+ * -------------------------------------------------------------------------- */
+
+.page-container {
+  margin-top: var(--page-top-gap);
+  padding-top: 0;
+}
+
+/* progress-bar.js (loaded because enable_progressbar: true) re-measures the
+   navbar ~50ms after every page load and overwrites body's inline padding-top
+   with the measured height. On mobile the navbar (hamburger only) is ~13px
+   shorter than the 57px that body.fixed-top-nav's static CSS assumes, so the
+   whole page visibly jumped up right after first paint. A stylesheet
+   !important outranks an element's inline style, so pinning the value here
+   makes the JS write a no-op: first paint == final layout, no jump. The
+   scroll progress bar itself still works (it positions itself independently
+   via progressBar.style.top, hugging the navbar's real bottom edge). */
+body.fixed-top-nav {
+  padding-top: 57px !important;
+}
+
+.post-header {
+  margin: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.post-title,
+h1.post-title,
+h2.post-title {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.desc,
+.post-description {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* The `description:` front matter is blank on /projects/, /contact/, etc., but
+   an empty <p> still generates a box. Remove it so it can't inject phantom
+   space below the title. */
+.post-header .post-description:empty {
+  display: none;
+}
+
+/* If the bib search box is enabled (site.bib_search), it sits between the
+   title and the first divider on publications; give it the same gap above it
+   as every divider gets. (Currently bib_search: false, so this is dormant.) */
+.bibsearch-form-input {
+  margin-top: var(--divider-gap) !important;
+  margin-bottom: 0 !important;
+}
+
+/* al_folio_core's _components.scss defines .card-img (not .card-img-top,
+   which is what projects.liquid actually puts on the <img>), so the
+   thumbnail was only constrained by figure.liquid's width="100%" attribute
+   and rendered at full native size/aspect ratio. Style it like the circular
+   profile photo on the person's own about page (jaeheonkwak.md's
+   image_circular: true). The extra `img` in the selector matches
+   .projects .card img from _components.scss's specificity so it wins
+   without !important. */
+.projects .card img.card-img-top {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 1rem auto 0;
+}
+
+.projects .card {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Only the title color should react on hover; drop .hoverable's lift + shadow. */
+.projects .hoverable:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* The photo+name link and the description live in two stacked .card-body
+   divs now (see _includes/projects.liquid), each with the gem's default
+   1.25rem padding on all sides. Tighten the seam between them. */
+.projects .card a .card-body {
+  padding-bottom: 0 !important;
+}
+
+.projects .card a + .card-body {
+  padding-top: 0.5rem !important;
+}
+
+/* Reusable divider under a page title, matching publications' h2.bibliography
+   and people's h2.category exactly: same margin-top/padding-top/margin-bottom
+   and right-aligned label text, so every page's title-to-divider gap,
+   divider-to-text gap, and label alignment line up.
+   Use on an empty element for a bare divider, or with text for a labeled one. */
+.section-divider {
+  color: var(--global-divider-color);
+  border-top: 1px solid var(--global-divider-color);
+  text-align: right;
+  padding-top: 0.8rem;
+  margin-top: var(--divider-gap);
+  margin-bottom: 1rem;
+}
+
+/* Divider labels at h3 size (site h3 measures 28px = 1.75rem), one size for
+   every divider. The gem pins the year text on publications inside a span at
+   1.5rem (24px) while other divider labels rendered at h2's 32px -- another
+   publications-only inconsistency; `inherit` folds it into the shared size. */
+.section-divider,
+.projects h2.category,
+.publications h2.bibliography {
+  font-size: 1.75rem;
+}
+
+.publications h2.bibliography span {
+  font-size: inherit;
+}

@@ -7,3 +7,24 @@
 
 "Vision":
   color: "#009f36"
+
+"Real-time":
+  color: "#79DEC0"
+
+"Mobile":
+  color: "#F18BBA"
+
+"Battery":
+  color: "#66AFFF"
+
+"Security":
+  color: "#A6ACB1"
+
+"AI":
+  color: "#FDAA48"
+
+"System":
+  color: "#8b87ff"
+
+"Healthcare":
+  color: "#82b588"
