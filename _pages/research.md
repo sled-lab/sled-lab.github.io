@@ -10,45 +10,186 @@ _styles: |
     margin-bottom: 0.25rem;
   }
 
+  /* Text-left / figure-right rows. `no-gutters` keeps the row inside the
+     930px article width. The theme grid only ships col-sm-{2,3,4,6,8,9,10,12},
+     so the 7/5 split is defined here (page styles are unlayered and win over
+     the gem's @layer rules); padding-right restores the gutter between columns. */
+  .research-area .row {
+    align-items: center;
+  }
+
+  .research-area .col-sm-7,
+  .research-area .col-sm-5 {
+    width: 100%;
+    min-height: 1px;
+    position: relative;
+  }
+
   @media (min-width: 576px) {
-    article > p,
-    article > ul {
-      width: 92.5%;
+    .research-area .col-sm-7 {
+      flex: 0 0 64.5%;
+      max-width: 64.5%;
+      padding-right: 1.5rem;
     }
+
+    .research-area .col-sm-5 {
+      flex: 0 0 35.5%;
+      max-width: 35.5%;
+    }
+  }
+
+  .research-area .caption {
+    text-align: center;
+  }
+
+  /* One line per paper: titles are pre-shortened with an ellipsis so the
+     venue stays visible; this clamp is the fallback on narrower viewports. */
+  .rep-pubs a {
+    display: inline-block;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
   }
 ---
 
 
-<h3 class="section-divider">Recruiting</h3>
+<h3 class="section-divider"></h3>
 
-##### **Recruiting graduate/undergraduate students! 대학원생/학부연구생 모집 중!**
+SLED Lab builds system software for the layer where computing meets the physical world — processors, batteries, power, and heat — on edge devices from smartphones to electric vehicles. Today this software follows rules fixed at design time, blind to each device's workload, user, and environment; we replace those rules with run-time learning, grounded in scheduling theory and domain expertise. Our results range from DVFS governors that learn their thermal surroundings (ICCAD 2025) and battery swap stations that guarantee EV wait times (RTAS 2025), to heterogeneous smartphone batteries that cut users' low-battery time (MobiSys 2023) and real-time schedulers that more than double battery lifespan (RTSS 2019).
 
-I am looking for undergraduate researchers who plan to go to graduate school or are willing to work with me for at least one year.\
-I am also recruiting graduate student applicants for the [BK21 AI Convergence Network program](https://www.ajou.ac.kr/ai-nets_eng/index.do).
+#### **A. Learning-based system management**
 
-**Graduate Support:** Full tuition support (BK21) + stipend + weekly research mentoring for top-tier conference publications + comfortable personal workspace and equipment\
-**Undergraduate Research Intern Support:** stipend + weekly research mentoring + comfortable personal workspace and equipment
+<div class="research-area">
+  <div class="row no-gutters">
+    <div class="col-sm-7">
+      <p>
+        Rule-based system software — DVFS governors, thermal throttling — is tuned by vendors for universal use
+        cases, so it cannot adapt to each app's workload or the device's thermal environment.
+        <strong>EarDVFS</strong> (ICCAD 2025) is a reinforcement-learning DVFS governor that steers, rather than
+        replaces, the vendor-tuned governor, improving power efficiency by
+        <strong>21.6% on average (up to 49.6%)</strong> across devices, apps, and ambient temperatures.
+      </p>
+      <p class="rep-pubs">
+        <strong>Representative:</strong><br>
+        <a href="{{ '/assets/pdf/25-eardvfsenvironment.pdf' | relative_url }}">EarDVFS: Environment-Adaptable RL-based DVFS… (ICCAD 2025)</a>
+      </p>
+    </div>
+    <div class="col-sm-5">
+      {%
+        include figure.liquid
+        path="assets/img/research/a-eardvfs.png"
+        class="img-fluid rounded z-depth-1"
+        alt="EarDVFS reinforcement learning loop"
+        caption="EarDVFS learns the environment and steers the vendor-tuned DVFS governor."
+        sizes="(min-width: 576px) 360px, 92vw"
+        loading="lazy"
+        zoomable=true
+      %}
+    </div>
+  </div>
+</div>
 
-대학원 진학을 희망하거나 저와 최소 1년 이상 함께 연구할 학부 연구생을 모집합니다.\
-또, [BK21 AI 융합 네트워크 학과](https://ai-nets.ajou.ac.kr/ai-nets/index.do)에 진학할 대학원생을 모집합니다.
+#### **B. Battery/power management in mobile systems**
 
-**대학원생 지원:** 전액 학비 지원 (BK21 사업) + 인건비 + 탑티어 컨퍼런스 논문 게재를 위한 주 1회 연구 지도 + 쾌적한 개인 공간 및 장비\
-**학부연구생 지원:** 인건비 + 주 1회 연구 지도 + 쾌적한 개인 공간 및 장비
+<div class="research-area">
+  <div class="row no-gutters">
+    <div class="col-sm-7">
+      <p>
+        Battery swap stations replace a discharged EV battery pack in minutes, yet give drivers no guarantee on
+        how long they will wait. We made the first real-time scheduling formulation of swap/charge operations
+        (<strong>RTAS 2025</strong>) and developed <strong>battery swap station management (BSSM)</strong> policies
+        that guarantee each EV's wait time under real-world arrival patterns.
+      </p>
+      <p class="rep-pubs">
+        <strong>Representative:</strong><br>
+        <a href="{{ '/assets/pdf/25-schedulingev.pdf' | relative_url }}">Scheduling EV Battery Swap/Charge Operations (RTAS 2025)</a><br>
+        <a href="{{ '/assets/pdf/24-racsupporting.pdf' | relative_url }}">RAC+: Supporting Reconfiguration-Assisted Charging… (TII 2024)</a><br>
+        <a href="{{ '/assets/pdf/19-minimizingcapacity.pdf' | relative_url }}">Minimizing Capacity Degradation of Heterogeneous Batteries… (ESL 2019)</a>
+      </p>
+    </div>
+    <div class="col-sm-5">
+      {%
+        include figure.liquid
+        path="assets/img/research/b-bssm.png"
+        class="img-fluid rounded z-depth-1"
+        alt="Overview of a battery swap station"
+        caption="Swapping machines, chargers, and spare packs are co-scheduled for wait-time guarantees."
+        sizes="(min-width: 576px) 360px, 92vw"
+        loading="lazy"
+        zoomable=true
+      %}
+    </div>
+  </div>
+</div>
 
+#### **C. System-level supports for mobile user experience**
 
-If you are interested, please email me your CV!\
-관심이 있다면 제 이메일로 이력서를 보내주세요!
+<div class="research-area">
+  <div class="row no-gutters">
+    <div class="col-sm-7">
+      <p>
+        Starting from <strong>19,855 hours</strong> of battery usage from 100 real users,
+        <strong>MixMax</strong> (MobiSys 2023) mixes three complementary battery types and co-optimizes their
+        ratio and charge/discharge policies. It cuts users' low-battery time by <strong>up to 24.6%</strong> —
+        without changing capacity, volume, weight, or how users charge — and runs on a real smartphone prototype.
+      </p>
+      <p class="rep-pubs">
+        <strong>Representative:</strong><br>
+        <a href="{{ '/assets/pdf/23-mixmaxleveraging.pdf' | relative_url }}">MixMax: Leveraging Heterogeneous Batteries… (MobiSys 2023)</a><br>
+        <a href="{{ '/assets/pdf/25-leveragingcustomized.pdf' | relative_url }}">Leveraging Customized Heterogeneous Batteries… (TSUSC 2025)</a><br>
+        <a href="{{ '/assets/pdf/24-serenusalleviating.pdf' | relative_url }}">Serenus: Alleviating Low-Battery Anxiety… (UIST 2024)</a><br>
+        <a href="{{ '/assets/pdf/26-mcardiacdxradar.pdf' | relative_url }}">mCardiacDx: Radar-Driven Contactless Monitoring… (JTEHM 2026)</a>
+      </p>
+    </div>
+    <div class="col-sm-5">
+      {%
+        include figure.liquid
+        path="assets/img/research/c-mixmax.png"
+        class="img-fluid rounded z-depth-1"
+        alt="MixMax overview"
+        caption="MixMax co-optimizes battery composition and charge/discharge policies."
+        sizes="(min-width: 576px) 360px, 92vw"
+        loading="lazy"
+        zoomable=true
+      %}
+    </div>
+  </div>
+</div>
 
-<h2 class="section-divider">Contact</h2>
+#### **D. Novel scheduling algorithm & framework**
 
-**Faculty Office**\
-(16499) 대한민국 경기도 수원시 영통구 월드컵로 206 아주대학교 팔달관 606호<br>
-(16499) # 606, Paldal Hall, Ajou University, 206 Worldcup-ro, Yeongtong-gu, Suwon, Gyeonggi-do, South Korea
+<div class="research-area">
+  <div class="row no-gutters">
+    <div class="col-sm-7">
+      <p>
+        Scheduling shapes the physical behavior of a system, not just its deadlines. We showed that task
+        scheduling systematically affects battery aging (<strong>RTSS 2019</strong>): our
+        <strong>RET (Reserved Execution Time)</strong> framework keeps offline timing guarantees intact while
+        runtime heuristics flatten the power draw, extending battery lifespan by <strong>up to 144.4%</strong>.
+      </p>
+      <p class="rep-pubs">
+        <strong>Representative:</strong><br>
+        <a href="{{ '/assets/pdf/19-batteryagingdeceleration.pdf' | relative_url }}">Battery Aging Deceleration… (RTSS 2019)</a><br>
+        <a href="{{ '/assets/pdf/20-nonpreemptive.pdf' | relative_url }}">Non-Preemptive Real-Time Multiprocessor Scheduling… (RTSS 2020)</a><br>
+        <a href="{{ '/assets/pdf/23-batteryagingaware.pdf' | relative_url }}">Battery-Aging-Aware Run-Time Slack Management… (JSA 2023)</a><br>
+        <a href="{{ '/assets/pdf/19-coverttimingchannel.pdf' | relative_url }}">Covert Timing Channel Design… (PDCAT 2019)</a>
+      </p>
+    </div>
+    <div class="col-sm-5">
+      {%
+        include figure.liquid
+        path="assets/img/research/d-ret.png"
+        class="img-fluid rounded z-depth-1"
+        alt="RET framework key idea"
+        caption="RET controls execution start times within reserved windows to flatten power draw."
+        sizes="(min-width: 576px) 360px, 92vw"
+        loading="lazy"
+        zoomable=true
+      %}
+    </div>
+  </div>
+</div>
 
-**Student Office**\
-(16499) 대한민국 경기도 수원시 영통구 월드컵로 206 아주대학교 팔달관 913호<br>
-(16499) # 913, Paldal Hall, Ajou University, 206 Worldcup-ro, Yeongtong-gu, Suwon, Gyeonggi-do, South Korea
-
-**Contacts**
-- **E-mail:** jhkwak@ajou.ac.kr (preferred)
-- **Phone:** 031-219-2438
+See the full list on the [Publications]({{ '/publications/' | relative_url }}) page.

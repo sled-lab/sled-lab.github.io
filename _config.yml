@@ -86,7 +86,7 @@ posts_in_search: false
 bib_search: false
 
 # Dimensions
-max_width: 860px
+max_width: 930px
 
 # -----------------------------------------------------------------------------
 # Open Graph & Schema.org
@@ -387,11 +387,13 @@ filtered_bibtex_keywords:
     hal,
     html,
     inspirehep_id,
+    paper,
     pdf,
     pmid,
     poster,
     preview,
     selected,
+    slide,
     slides,
     supp,
     video,

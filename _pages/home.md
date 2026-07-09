@@ -29,10 +29,9 @@ latest_posts:
 
 <div class="section-divider"></div>
 
-##### **Welcome to <u>S</u>ystems & <u>L</u>earning for <u>E</u>dge <u>D</u>evices Laboratory (SLED Lab)!**
+SLED Lab, the <u>S</u>ystems & <u>L</u>earning for <u>E</u>dge Devices <u>L</u>aboratory, explores where system software meets the physical world — processors, microarchitecture, batteries, power, and heat. We replace hand-tuned rules with learning, domain expertise, and scheduling theory, validated on edge devices from smartphones to electric vehicles.
 
-SLED Lab advances learning-driven system software for efficient and intelligent edge devices. We build software and platforms that understand the interaction between computation, power, and hardware resources, enabling next-generation edge systems to adapt, optimize, and scale.
-
+**We are always looking for motivated students to join us — please see [Contact]({{ '/contact/' | relative_url }}).**
 
 <div class="section-divider"></div>
 
@@ -41,11 +40,11 @@ SLED Lab advances learning-driven system software for efficient and intelligent 
 </h4>
 
 A. Learning-based system management\
-B. Batter/power management in mobile/mobility systems\
+B. Battery/power management in mobile systems\
 C. System-level supports for mobile user experience\
-D. Nobel scheduling algorithm & framework
+D. Novel scheduling algorithm & framework
 
-<div class="row">
+<div class="row research-area-grid">
   <div class="col-sm-3">
     {%
       include figure.liquid
@@ -53,7 +52,7 @@ D. Nobel scheduling algorithm & framework
       class="img-fluid rounded z-depth-1"
       alt="Learning-based system management"
       caption="A. EarDVFS (ICCAD 2025)"
-      sizes="(min-width: 576px) 200px, 95vw"
+      sizes="(min-width: 576px) 200px, 45vw"
       loading="lazy"
       zoomable=true
     %}
@@ -66,7 +65,7 @@ D. Nobel scheduling algorithm & framework
       class="img-fluid rounded z-depth-1"
       alt="Battery and power management"
       caption="B. BSSM (RTAS 2025)"
-      sizes="(min-width: 576px) 200px, 95vw"
+      sizes="(min-width: 576px) 200px, 45vw"
       loading="lazy"
       zoomable=true
     %}
@@ -79,7 +78,7 @@ D. Nobel scheduling algorithm & framework
       class="img-fluid rounded z-depth-1"
       alt="Mobile user experience"
       caption="C. MixMax (MobiSys 2023)"
-      sizes="(min-width: 576px) 200px, 95vw"
+      sizes="(min-width: 576px) 200px, 45vw"
       loading="lazy"
       zoomable=true
     %}
@@ -92,7 +91,7 @@ D. Nobel scheduling algorithm & framework
       class="img-fluid rounded z-depth-1"
       alt="Scheduling algorithms and frameworks"
       caption="D. RET (RTSS 2019)"
-      sizes="(min-width: 576px) 200px, 95vw"
+      sizes="(min-width: 576px) 200px, 45vw"
       loading="lazy"
       zoomable=true
     %}

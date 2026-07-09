@@ -2,8 +2,9 @@
 layout: about
 title: Jaeheon Kwak
 permalink: /jaeheonkwak
+link: true
 subtitle: Jaeheon Kwak (곽재헌)
-img: assets/img/me.jpg
+img: assets/img/people/me.jpg
 category: Faculty
 description: Assistant Professor
 email: jhkwak@ajou.ac.kr
@@ -11,7 +12,7 @@ research: Supervisor
 
 profile:
   align: right
-  image: me.jpg
+  image: people/me.jpg
   image_circular: true # crops the image to make it circular
   more_info: >
 

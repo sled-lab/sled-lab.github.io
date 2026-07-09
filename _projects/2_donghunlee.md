@@ -2,8 +2,9 @@
 layout: about
 title: Donghun Lee
 permalink: /donghunlee
+link: false
 subtitle: Donghun Lee (이동훈)
-img: assets/img/donghunlee.jpg
+img: assets/img/people/donghunlee.jpg
 category: Students
 description: Undergraduate student
 email: leedhun03@ajou.ac.kr
@@ -11,7 +12,7 @@ research:
 
 profile:
   align: right
-  image: donghunlee.jpg
+  image: people/donghunlee.jpg
   image_circular: true # crops the image to make it circular
   more_info: >
 

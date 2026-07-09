@@ -13,7 +13,7 @@ _styles: |
   @media (min-width: 576px) {
     article > p,
     article > ul {
-      width: 92.5%;
+      width: 100%;
     }
   }
 ---

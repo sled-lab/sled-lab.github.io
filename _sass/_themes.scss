@@ -113,6 +113,14 @@ h2.post-title {
   }
 }
 
+@media (max-width: 575.98px) {
+  .research-area-grid > .col-sm-3 {
+    flex: 0 0 50%;
+    width: 50%;
+    max-width: 50%;
+  }
+}
+
 b,
 strong {
   font-weight: bolder;
@@ -146,6 +154,11 @@ ol ol {
   font-size: 77.5%;
   font-weight: 700;
   line-height: 1;
+}
+
+.publications .links .paper-link,
+.publications .links .slide-link {
+  font-size: 0.72rem;
 }
 
 /* al_folio_core's _publications.scss sets .abbr abbr { margin-bottom: 0.5rem; },
@@ -243,7 +256,7 @@ ol ol {
 @media (max-width: 576px) {
   .profile {
     float: none;
-    margin: 0 auto 1rem;
+    margin: 0.75rem auto 1rem;
     text-align: center;
   }
   .profile img {
@@ -380,6 +393,69 @@ h2.post-title {
   margin: 1rem auto 0;
 }
 
+.people-grid figure {
+  margin-bottom: 0.7rem;
+}
+
+.people-grid .person-heading {
+  padding-top: 0.8rem !important;
+}
+
+.people-grid .card-title {
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 767.98px) {
+  .people-grid > .col {
+    flex: 0 0 50%;
+    width: 50%;
+    max-width: 50%;
+  }
+
+  .people-grid .card img.card-img-top {
+    width: clamp(110px, 32vw, 140px);
+    height: clamp(110px, 32vw, 140px);
+  }
+
+  .people-grid .card-body {
+    padding-right: 0.5rem !important;
+    padding-left: 0.5rem !important;
+  }
+
+  .people-grid .card-title {
+    font-size: 1.4rem;
+    overflow-wrap: anywhere;
+  }
+
+  .people-grid .card-text {
+    font-size: 0.9rem;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (min-width: 768px) {
+  .people-grid > .col {
+    flex: 0 0 25%;
+    width: 25%;
+    max-width: 25%;
+  }
+
+  .people-grid .card img.card-img-top {
+    width: 160px;
+    height: 160px;
+  }
+
+  .people-grid .card-body {
+    padding-right: 0.5rem !important;
+    padding-left: 0.5rem !important;
+  }
+
+  .people-grid .card-title {
+    font-size: 1.4rem;
+    overflow-wrap: anywhere;
+  }
+}
+
 .projects .card {
   border: none !important;
   box-shadow: none !important;
@@ -391,23 +467,22 @@ h2.post-title {
   box-shadow: none !important;
 }
 
-/* The photo+name link and the description live in two stacked .card-body
-   divs now (see _includes/projects.liquid), each with the gem's default
-   1.25rem padding on all sides. Tighten the seam between them. */
-.projects .card a .card-body {
+/* The name and description live in two stacked .card-body divs. Use explicit
+   classes so spacing stays the same whether the person card is linked or not. */
+.projects .card .person-heading {
   padding-bottom: 0 !important;
 }
 
-.projects .card a + .card-body {
-  padding-top: 0.5rem !important;
+.projects .card .person-details {
+  padding-top: 0.4rem !important;
   padding-bottom: 0.25rem !important;
 }
 
-.projects .card a + .card-body .card-text {
+.projects .card .person-details .card-text {
   margin-bottom: 0.35rem !important;
 }
 
-.projects .card a + .card-body .card-text:last-of-type {
+.projects .card .person-details .card-text:last-of-type {
   margin-bottom: 0 !important;
 }
 
@@ -469,4 +544,15 @@ body > footer.sticky-bottom {
   margin-top: auto !important; /* beats .mt-5's 3rem; pushes the footer down */
   padding-top: 1rem; /* was 40px -- the empty band above the footer text */
   padding-bottom: 1rem;
+  font-size: 0.8rem;
+  color: var(--global-divider-color);
+  // border-top: none !important;
+}
+
+body > footer.sticky-bottom a {
+  color: inherit;
+
+  &:hover {
+    color: var(--global-hover-color);
+  }
 }

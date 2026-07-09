@@ -4,8 +4,14 @@
   {% else %}
     {% assign project_url = project.url | relative_url %}
   {% endif %}
+  {% assign project_link_enabled = true %}
+  {% if project.link == false %}
+    {% assign project_link_enabled = false %}
+  {% endif %}
   <div class="card h-100 hoverable">
-    <a href="{{ project_url }}">
+    {% if project_link_enabled %}
+      <a href="{{ project_url }}">
+    {% endif %}
       {% if project.img %}
         {%
           include figure.liquid
@@ -13,17 +19,19 @@
           path=project.img
           sizes = "250px"
           alt="project thumbnail"
-          class="card-img-top"
+          class="card-img-top z-depth-1"
         %}
       {% endif %}
-      <div class="card-body">
+      <div class="card-body person-heading">
         <h2 class="card-title">{{ project.title }}</h2>
       </div>
-    </a>
-    <div class="card-body">
+    {% if project_link_enabled %}
+      </a>
+    {% endif %}
+    <div class="card-body person-details">
       <p class="card-text">{{ project.description }}</p>
       {% if project.email %}
-        <p class="card-text">E-mail: {{ project.email }}</p>
+        <p class="card-text">{{ project.email }}</p>
       {% endif %}
       {% if project.research %}
         <p class="card-text">{{ project.research }}</p>
