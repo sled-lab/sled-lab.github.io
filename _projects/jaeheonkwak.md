@@ -60,14 +60,14 @@ Office: 606, Paldal Hall, Ajou University<br>
 <ul style="padding-left:20px;">
 <li> Mobile systems</li>
   <ul style="padding-left:20px;">
-  <li>Dynamic voltage and frequency scaling, Android AOSP, ...</li>
+  <li>Dynamic voltage and frequency scaling, On-device AI</li>
   </ul>
 <li> Battery/power/thermal management</li>
   <ul style="padding-left:20px;">
-  <li>Battery modeling, efficient voltage regulation, ...</li>
+  <li>Battery modeling, voltage regulator, thermal throttling</li>
   </ul>
 <li> Real-time systems</li>
   <ul style="padding-left:20px;">
-  <li>Non-preemptive tasks, non-work-conserving scheduling, ...</li>
+  <li>Non-preemptive tasks, non-work-conserving scheduling</li>
   </ul>
 </ul>

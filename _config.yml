@@ -3,9 +3,9 @@
 # -----------------------------------------------------------------------------
 
 title: SLED Lab @ Ajou Univ. # the website title (if blank, full name will be used instead)
-first_name: Systems & Learning for Edge Devices (SLED)
+first_name: SLED
 middle_name: 
-last_name: Laboratory
+last_name: Lab
 contact_note: >
   
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
