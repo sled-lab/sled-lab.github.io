@@ -2,7 +2,7 @@
 layout: page
 title: People
 permalink: /people/
-description: 
+description:
 nav: true
 nav_order: 2
 display_categories: [Faculty, Students, Alumni]

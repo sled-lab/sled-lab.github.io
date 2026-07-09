@@ -168,7 +168,7 @@ ol ol {
    max-width, not width, because the shim's `.w-100 { width:100% !important }`
    lives in a cascade layer and beats any unlayered width override. */
 .abbr abbr {
-  margin-bottom: 0.0rem !important;
+  margin-bottom: 0rem !important;
   max-width: 90%;
 }
 
@@ -410,6 +410,8 @@ h2.post-title {
     flex: 0 0 50%;
     width: 50%;
     max-width: 50%;
+    padding-right: 0.75rem !important;
+    padding-left: 0.75rem !important;
   }
 
   .people-grid .card img.card-img-top {

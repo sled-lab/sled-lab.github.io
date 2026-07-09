@@ -18,7 +18,6 @@ _styles: |
   }
 ---
 
-
 <h3 class="section-divider">Recruiting</h3>
 
 ##### **대학원생/학부연구생 모집 중!**
@@ -43,7 +42,6 @@ I am also recruiting graduate student applicants for the [BK21 AI Convergence Ne
 If you are interested, please email me your CV!\
 (jhkwak@ajou.ac.kr)
 
-
 <h3 class="section-divider">Contact</h3>
 
 **Faculty Office**\
@@ -55,5 +53,6 @@ If you are interested, please email me your CV!\
 (16499) # 913, Paldal Hall, Ajou University, 206 Worldcup-ro, Yeongtong-gu, Suwon, Gyeonggi-do, South Korea
 
 **Contacts**
+
 - **E-mail:** jhkwak@ajou.ac.kr (preferred)
 - **Phone:** 031-219-2438

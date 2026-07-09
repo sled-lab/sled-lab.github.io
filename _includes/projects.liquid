@@ -12,19 +12,19 @@
     {% if project_link_enabled %}
       <a href="{{ project_url }}">
     {% endif %}
-      {% if project.img %}
-        {%
-          include figure.liquid
-          loading="eager"
-          path=project.img
-          sizes = "250px"
-          alt="project thumbnail"
-          class="card-img-top z-depth-1"
-        %}
-      {% endif %}
-      <div class="card-body person-heading">
-        <h2 class="card-title">{{ project.title }}</h2>
-      </div>
+    {% if project.img %}
+      {%
+        include figure.liquid
+        loading="eager"
+        path=project.img
+        sizes = "250px"
+        alt="project thumbnail"
+        class="card-img-top z-depth-1"
+      %}
+    {% endif %}
+    <div class="card-body person-heading">
+      <h2 class="card-title">{{ project.title }}</h2>
+    </div>
     {% if project_link_enabled %}
       </a>
     {% endif %}

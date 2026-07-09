@@ -54,7 +54,6 @@ _styles: |
   }
 ---
 
-
 <h3 class="section-divider"></h3>
 
 SLED Lab builds system software for the layer where computing meets the physical world — processors, batteries, power, and heat — on edge devices from smartphones to electric vehicles. Today this software follows rules fixed at design time, blind to each device's workload, user, and environment; we replace those rules with run-time learning, grounded in scheduling theory and domain expertise. Our results range from DVFS governors that learn their thermal surroundings (ICCAD 2025) and battery swap stations that guarantee EV wait times (RTAS 2025), to heterogeneous smartphone batteries that cut users' low-battery time (MobiSys 2023) and real-time schedulers that more than double battery lifespan (RTSS 2019).

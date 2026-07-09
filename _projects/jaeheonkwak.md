@@ -24,7 +24,6 @@ announcements:
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
 
-
 custom_section: >
   <h4><b>Professional Activities</b></h4>
   <ul style="padding-left:20px;">
@@ -38,11 +37,11 @@ custom_section: >
     </ul>
   </ul>
 ---
+
 <p style="margin-bottom:0.5em; padding-bottom:0em;">
 <code  style="padding-left:0.5em; padding-right:0.5em;"><a href='https://sled-lab.github.io/'><b>Systems & Learning for Edge Devices Lab.</b></a></code>
 </p>
 <h4><b>Assistant Professor</b></h4>
-
 
 <a href='http://software.ajou.ac.kr/e_main.php'>Department of Software</a><br>
 <a href='https://www.ajou.ac.kr/en/'>Ajou University</a><br>
@@ -52,9 +51,6 @@ custom_section: >
 E-mail: jhkwak@ajou.ac.kr<br>
 LinkedIn: <a href='https://www.linkedin.com/in/jaehunny/'>linkedin.com/in/jaehunny</a><br>
 Office: 606, Paldal Hall, Ajou University<br>
-
-
-
 
 <h4><b>Research Interests</b></h4>
 <ul style="padding-left:20px;">
