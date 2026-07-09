@@ -191,5 +191,5 @@ SLED Lab builds system software for the layer where computing meets the physical
     </div>
   </div>
 </div>
-
-See the full list on the [Publications]({{ '/publications/' | relative_url }}) page.
+<!-- 
+See the full list on the [Publications]({{ '/publications/' | relative_url }}) page. -->
