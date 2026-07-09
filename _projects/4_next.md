@@ -6,7 +6,7 @@ link: false
 subtitle: Be the fourth!
 img: assets/img/people/next.png
 category: Students
-description: 
+description: Join our lab!
 email: 
 research: 
 
