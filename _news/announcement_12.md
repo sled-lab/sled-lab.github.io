@@ -5,4 +5,5 @@ inline: true
 related_posts: false
 ---
 
-SLED Lab. has secured a Basic Research Laboratory research grant (KRW 500 million per year for three years). 💵
+SLED Lab. has secured a Basic Research Laboratory research grant\
+(KRW 500 million per year for three years). 💵

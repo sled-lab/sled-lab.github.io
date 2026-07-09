@@ -103,6 +103,16 @@ h2.post-title {
   text-align: center;
 }
 
+.home-section-link {
+  color: var(--global-text-color);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--global-hover-color);
+    text-decoration: none;
+  }
+}
+
 b,
 strong {
   font-weight: bolder;
@@ -149,6 +159,17 @@ ol ol {
   max-width: 90%;
 }
 
+/* Badge width: `w-100` was removed from the badge markup in _layouts/bib.liquid
+   because the Tailwind shim ships `.w-100 { width:100% !important }` inside a
+   cascade layer, and a layered !important can't be overridden per-breakpoint
+   from our unlayered Sass. So the width the badges used to get from w-100 is set
+   here instead -- full column width on DESKTOP, so they stack one per line as
+   before -- and flipped to content width in the mobile block below, where they
+   run HORIZONTALLY. */
+.publications .abbr abbr.badge {
+  width: 100%;
+}
+
 /* Each bib entry is a Bootstrap-shim .row (margin-left/right: -15px) sitting
    directly in .publications, and its badge column has BOTH .col and .col-sm-2:
    the shim's `.col { padding-left/right: 0 }` wins over .col-sm-2's 15px
@@ -170,6 +191,30 @@ ol ol {
 
 .publications .row > .abbr {
   padding-right: 1rem !important;
+}
+
+/* Desktop keeps the badges stacked (full column width, set on
+   `.publications .abbr abbr.badge` above). On mobile lay them out HORIZONTALLY,
+   centered: the row stops being a flex box so the badge block sits above the
+   text block, the badge block centers its inline children, and each badge
+   shrinks to its own width (w-100 was dropped from the markup so `width: auto`
+   actually takes effect here). */
+@media (max-width: 575.98px) {
+  .publications .row {
+    display: block;
+  }
+
+  .publications .row > .abbr {
+    text-align: left; /* pack the horizontal run of badges to the left */
+    padding-right: 0 !important; /* the desktop gutter is pointless when stacked */
+    margin-bottom: 0.5rem;
+  }
+
+  .publications .abbr abbr.badge {
+    display: inline-block;
+    width: 6rem; /* uniform width regardless of label text (fits "Healthcare") */
+    margin: 0 0.4rem 0.3rem 0 !important; /* gap on the right; first badge flush left */
+  }
 }
 
 /* Align news body text with the publication title/author column. The selected
@@ -392,4 +437,36 @@ h2.post-title {
 
 .publications h2.bibliography span {
   font-size: inherit;
+}
+
+/* --- Footer: pin to the bottom of the viewport, tighten the band above text --
+ *
+ * footer_fixed is false, so the gem renders <footer class="sticky-bottom mt-5">.
+ * Two problems this fixes:
+ *  1. Bootstrap's `.sticky-bottom` is only `position: sticky; bottom: 0`, with
+ *     no full-height wrapper. On short pages (about, contact, projects) the
+ *     document is shorter than the viewport, so the footer just sat wherever the
+ *     content ended, leaving a band of blank page below it. Making <body> a
+ *     full-height flex column and giving the footer `margin-top: auto` eats the
+ *     leftover viewport height so the footer sits flush at the bottom; on long
+ *     pages the auto margin collapses to 0 and the footer trails the content.
+ *     `box-sizing: border-box` keeps body.fixed-top-nav's 57px padding-top
+ *     inside the 100vh so short pages don't grow a phantom scrollbar.
+ *  2. footer.sticky-bottom ships padding-top/bottom: 40px AND the include adds
+ *     .mt-5 (3rem) on top -- ~88px of empty space above the "(c) Copyright"
+ *     line. The auto margin replaces the .mt-5 gap (an unlayered !important
+ *     outranks the Tailwind shim's layered `.mt-5 { ... !important }`), and the
+ *     padding is trimmed to a compact 1rem band.
+ * -------------------------------------------------------------------------- */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+body > footer.sticky-bottom {
+  margin-top: auto !important; /* beats .mt-5's 3rem; pushes the footer down */
+  padding-top: 1rem; /* was 40px -- the empty band above the footer text */
+  padding-bottom: 1rem;
 }

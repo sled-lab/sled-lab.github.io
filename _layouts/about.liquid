@@ -43,7 +43,7 @@ layout: default
     {% if page.announcements and page.announcements.enabled %}
       <div class="section-divider"></div>
       <h4>
-        <b>News</b>
+        <a class="home-section-link" href="{{ '/news/' | relative_url }}"><b>News</b></a>
       </h4>
       {% include news.liquid limit=true %}
     {% endif %}
@@ -60,7 +60,7 @@ layout: default
     {% if page.selected_papers %}
       <h4>
         <div class="section-divider"></div>
-        <b>Selected Publications</b>
+        <a class="home-section-link" href="{{ '/publications/' | relative_url }}"><b>Selected Publications</b></a>
       </h4>
       {% include selected_papers.liquid %}
     {% endif %}

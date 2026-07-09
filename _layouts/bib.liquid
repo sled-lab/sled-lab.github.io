@@ -10,7 +10,7 @@
             {% assign venue_style = site.data.venues[entry.abbr].color | prepend: 'style="background-color:' | append: '"' %}
           {%- endif -%}
           <abbr
-            class="badge rounded w-100"
+            class="badge rounded"
             {% if venue_style %}
               {{ venue_style }}
             {% endif -%}
@@ -22,7 +22,7 @@
             {% endif %}
           </abbr>
         {% else %}
-          <abbr class="badge rounded w-100">{{ entry.abbr }}</abbr>
+          <abbr class="badge rounded">{{ entry.abbr }}</abbr>
         {% endif %}
       {% endif %}
       {%- if entry.abbr2 -%}
@@ -32,7 +32,7 @@
             {% assign venue_style = site.data.venues[entry.abbr2].color | prepend: 'style="background-color:' | append: '"' %}
           {%- endif -%}
           <abbr
-            class="badge rounded w-100"
+            class="badge rounded"
             {% if venue_style %}
               {{ venue_style }}
             {% endif -%}
@@ -44,7 +44,7 @@
             {% endif %}
           </abbr>
         {% else %}
-          <abbr class="badge rounded w-100">{{ entry.abbr2 }}</abbr>
+          <abbr class="badge rounded">{{ entry.abbr2 }}</abbr>
         {% endif %}
       {% endif %}
       {%- if entry.abbr3 -%}
@@ -54,7 +54,7 @@
             {% assign venue_style = site.data.venues[entry.abbr3].color | prepend: 'style="background-color:' | append: '"' %}
           {%- endif -%}
           <abbr
-            class="badge rounded w-100"
+            class="badge rounded"
             {% if venue_style %}
               {{ venue_style }}
             {% endif -%}
@@ -66,7 +66,7 @@
             {% endif %}
           </abbr>
         {% else %}
-          <abbr class="badge rounded w-100">{{ entry.abbr3 }}</abbr>
+          <abbr class="badge rounded">{{ entry.abbr3 }}</abbr>
         {% endif %}
       {% endif %}
       {% if entry.preview %}
@@ -89,7 +89,7 @@
   {% endif %}
 
   <!-- Entry bib key -->
-  <div id="{{entry.key}}" class="{% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-10{% endif %}">
+  <div id="{{entry.key}}" class="{% if site.enable_publication_thumbnails %}col-sm-9{% else %}col-sm-12{% endif %}">
     <!-- Title -->
     <div class="title">{{ entry.title }}</div>
     <!-- Author -->
@@ -193,9 +193,9 @@
     {% assign proceedings = 'inproceedings,incollection' | split: ',' %}
     {% assign thesis = 'thesis,mastersthesis,phdthesis' | split: ',' %}
     {% if entry.type == 'articlebold' %}
-      {% capture entrytype %}<em><b>{{entry.journal}}</b></em>{% endcapture %}
+      {% capture entrytype %}<b>{{entry.journal}}</b>{% endcapture %}
     {% elsif entry.type == 'article' %}
-      {% capture entrytype %}<em>{{entry.journal}}</em>{% endcapture %}
+      {% capture entrytype %}{{entry.journal}}{% endcapture %}
     {% elsif proceedings contains entry.type %}
       {% capture entrytype %}<em>In {{entry.booktitle}}</em> {% endcapture %}
     {% elsif thesis contains entry.type %}

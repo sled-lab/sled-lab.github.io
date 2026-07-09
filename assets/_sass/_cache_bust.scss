@@ -1,0 +1,13 @@
+// Cache-bust token for main.css's `?v=` digest. NOT compiled or imported --
+// this file only exists to be *read* by al_folio_core's `bust_css_cache` filter.
+//
+// Why this is needed: that filter digests `assets/_sass/**/*` first and only
+// falls back to the GEM's stock `_sass/` when that glob is empty. All of this
+// site's custom CSS lives in the LOCAL override `_sass/_themes.scss`, which the
+// filter never reads -- so edits there never changed main.css's `?v=` hash and
+// browsers kept serving stale CSS (a normal refresh wasn't enough). This file
+// makes the glob non-empty, so the digest tracks a token we control.
+//
+// >>> Bump this token on every `_sass/_themes.scss` change so returning
+// >>> visitors get fresh CSS on a normal reload. <<<
+// cache-bust: 2026-07-09-03

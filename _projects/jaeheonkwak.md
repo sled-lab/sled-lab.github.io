@@ -38,7 +38,7 @@ custom_section: >
   </ul>
 ---
 <p style="margin-bottom:0.5em; padding-bottom:0em;">
-<code  style="padding-left:0.5em; padding-right:0.5em;"><a href='https://sled-lab.github.io/'><b>Systems & Learning for Edge Devices Laboratory</b></a></code>
+<code  style="padding-left:0.5em; padding-right:0.5em;"><a href='https://sled-lab.github.io/'><b>Systems & Learning for Edge Devices Lab.</b></a></code>
 </p>
 <h4><b>Assistant Professor</b></h4>
 

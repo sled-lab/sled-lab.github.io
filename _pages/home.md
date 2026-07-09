@@ -2,7 +2,7 @@
 layout: about
 title: Home
 permalink: /
-subtitle: SLED Lab.
+subtitle: Systems & Learning for Edge Devices
 
 # profile:
 #   align: right
@@ -29,8 +29,72 @@ latest_posts:
 
 <div class="section-divider"></div>
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](https://www.reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+##### **Welcome to <u>S</u>ystems & <u>L</u>earning for <u>E</u>dge <u>D</u>evices Laboratory (SLED Lab)!**
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+SLED Lab advances learning-driven system software for efficient and intelligent edge devices. We build software and platforms that understand the interaction between computation, power, and hardware resources, enabling next-generation edge systems to adapt, optimize, and scale.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+
+<div class="section-divider"></div>
+
+<h4>
+  <a class="home-section-link" href="{{ '/research/' | relative_url }}"><b>Research areas</b></a>
+</h4>
+
+A. Learning-based system management\
+B. Batter/power management in mobile/mobility systems\
+C. System-level supports for mobile user experience\
+D. Nobel scheduling algorithm & framework
+
+<div class="row">
+  <div class="col-sm-3">
+    {%
+      include figure.liquid
+      path="assets/img/research/a.jpg"
+      class="img-fluid rounded z-depth-1"
+      alt="Learning-based system management"
+      caption="A. EarDVFS (ICCAD 2025)"
+      sizes="(min-width: 576px) 200px, 95vw"
+      loading="lazy"
+      zoomable=true
+    %}
+  </div>
+
+  <div class="col-sm-3">
+    {%
+      include figure.liquid
+      path="assets/img/research/b.jpg"
+      class="img-fluid rounded z-depth-1"
+      alt="Battery and power management"
+      caption="B. BSSM (RTAS 2025)"
+      sizes="(min-width: 576px) 200px, 95vw"
+      loading="lazy"
+      zoomable=true
+    %}
+  </div>
+
+  <div class="col-sm-3">
+    {%
+      include figure.liquid
+      path="assets/img/research/c.jpg"
+      class="img-fluid rounded z-depth-1"
+      alt="Mobile user experience"
+      caption="C. MixMax (MobiSys 2023)"
+      sizes="(min-width: 576px) 200px, 95vw"
+      loading="lazy"
+      zoomable=true
+    %}
+  </div>
+
+  <div class="col-sm-3">
+    {%
+      include figure.liquid
+      path="assets/img/research/d.jpg"
+      class="img-fluid rounded z-depth-1"
+      alt="Scheduling algorithms and frameworks"
+      caption="D. RET (RTSS 2019)"
+      sizes="(min-width: 576px) 200px, 95vw"
+      loading="lazy"
+      zoomable=true
+    %}
+  </div>
+</div>
