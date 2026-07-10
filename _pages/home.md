@@ -29,7 +29,7 @@ latest_posts:
 
 <div class="section-divider"></div>
 
-SLED Lab, the <u>S</u>ystems & <u>L</u>earning for <u>E</u>dge Devices <u>L</u>aboratory, explores where systems meet the physical world — processors, microarchitecture, batteries, power, and heat. We replace hand-tuned rules with learning, domain expertise, and scheduling theory, validated on edge devices from smartphones to electric vehicles.
+SLED Lab, the <u>S</u>ystems & <u>L</u>earning for <u>E</u>dge Devices <u>L</u>aboratory, explores where systems meet the physical world — power, heat, batteries, microarchitecture, and processors. We replace hand-tuned rules with learning, domain expertise, and scheduling theory, validated on edge devices from smartphones to electric vehicles.
 
 **We are always looking for motivated students to join us — please see [Contact]({{ '/contact/' | relative_url }}).**
 

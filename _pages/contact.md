@@ -28,7 +28,7 @@ _styles: |
 **대학원생 지원:** 학비 전액 지원 + 인건비 + 탑티어 컨퍼런스 논문 게재를 위한 주 1회 연구 지도\
 **학부연구생 지원:** 인건비 + 주 1회 연구 지도
 
-관심이 있다면 제 이메일로 이력서를 보내주세요!\
+관심이 있다면 제 이메일로 이력서와 성적표를 보내주세요.\
 (jhkwak@ajou.ac.kr)
 
 ##### **Recruiting graduate/undergraduate students!**
@@ -39,7 +39,7 @@ I am also recruiting graduate student applicants for the [BK21 AI Convergence Ne
 **Graduate Support:** Full tuition support + stipend + weekly research mentoring for top-tier conference publications\
 **Undergraduate Research Intern Support:** stipend + weekly research mentoring
 
-If you are interested, please email me your CV!\
+If you are interested, please email me your CV and transcript.\
 (jhkwak@ajou.ac.kr)
 
 <h3 class="section-divider">Contact</h3>
