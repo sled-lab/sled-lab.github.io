@@ -113,6 +113,29 @@ h2.post-title {
   }
 }
 
+.research-area-summary-link,
+.research-area-card-link {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--global-hover-color);
+    text-decoration: none;
+  }
+}
+
+.research-area-card-link {
+  display: block;
+
+  img {
+    transition: opacity 0.15s ease-in-out;
+  }
+
+  &:hover img {
+    opacity: 0.92;
+  }
+}
+
 /* Home research grid. Mobile: 2-up at 50%, slightly tighter 10px gutters
    (row margin matches so the outer edges stay aligned with the text), and
    justify-content centers the lone third image on its own line. Desktop:
@@ -424,6 +447,15 @@ h2.post-title {
 
 .people-grid figure {
   margin-bottom: 0.7rem;
+}
+
+.people-grid .card a img.card-img-top {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.people-grid .card a img.card-img-top:hover,
+.people-grid .card a:focus-visible img.card-img-top {
+  opacity: 0.92;
 }
 
 .people-grid .person-heading {

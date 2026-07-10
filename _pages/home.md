@@ -35,51 +35,68 @@ SLED Lab, the <u>S</u>ystems & <u>L</u>earning for <u>E</u>dge Devices <u>L</u>a
 
 <div class="section-divider"></div>
 
+{% assign research_url = '/research/' | relative_url %}
+
 <h4>
-  <a class="home-section-link" href="{{ '/research/' | relative_url }}"><b>Research areas</b></a>
+  <a class="home-section-link" href="{{ research_url }}"><b>Research areas</b></a>
 </h4>
 
-A. Learning-based system optimization\
-B. System-level support for battery & energy\
-C. Novel resource management framework
+<a class="research-area-summary-link" href="{{ research_url }}">A. Learning-based system optimization</a>\
+<a class="research-area-summary-link" href="{{ research_url }}">B. System-level support for battery & energy</a>\
+<a class="research-area-summary-link" href="{{ research_url }}">C. Novel resource management framework</a>
 
 <div class="row research-area-grid">
   <div class="col-sm-4">
-    {%
-      include figure.liquid
-      path="assets/img/research/a.jpg"
-      class="img-fluid rounded z-depth-1"
-      alt="Learning-based system optimization"
-      caption="A. EarDVFS (ICCAD 2025)"
-      sizes="(min-width: 576px) 250px, 45vw"
-      loading="lazy"
-      zoomable=true
-    %}
+    <a
+      class="research-area-card-link"
+      href="{{ research_url }}"
+      aria-label="View research area A: Learning-based system optimization"
+    >
+      {%
+        include figure.liquid
+        path="assets/img/research/a.jpg"
+        class="img-fluid rounded z-depth-1"
+        alt="Learning-based system optimization"
+        caption="A. EarDVFS (ICCAD 2025)"
+        sizes="(min-width: 576px) 250px, 45vw"
+        loading="lazy"
+      %}
+    </a>
   </div>
 
   <div class="col-sm-4">
-    {%
-      include figure.liquid
-      path="assets/img/research/c.jpg"
-      class="img-fluid rounded z-depth-1"
-      alt="Battery and power management"
-      caption="B. MixMax (MobiSys 2023)"
-      sizes="(min-width: 576px) 250px, 45vw"
-      loading="lazy"
-      zoomable=true
-    %}
+    <a
+      class="research-area-card-link"
+      href="{{ research_url }}"
+      aria-label="View research area B: System-level support for battery and energy"
+    >
+      {%
+        include figure.liquid
+        path="assets/img/research/c.jpg"
+        class="img-fluid rounded z-depth-1"
+        alt="Battery and power management"
+        caption="B. MixMax (MobiSys 2023)"
+        sizes="(min-width: 576px) 250px, 45vw"
+        loading="lazy"
+      %}
+    </a>
   </div>
 
   <div class="col-sm-4">
-    {%
-      include figure.liquid
-      path="assets/img/research/d.jpg"
-      class="img-fluid rounded z-depth-1"
-      alt="Scheduling algorithms and frameworks"
-      caption="C. RET (RTSS 2019)"
-      sizes="(min-width: 576px) 250px, 45vw"
-      loading="lazy"
-      zoomable=true
-    %}
+    <a
+      class="research-area-card-link"
+      href="{{ research_url }}"
+      aria-label="View research area C: Novel resource management framework"
+    >
+      {%
+        include figure.liquid
+        path="assets/img/research/d.jpg"
+        class="img-fluid rounded z-depth-1"
+        alt="Scheduling algorithms and frameworks"
+        caption="C. RET (RTSS 2019)"
+        sizes="(min-width: 576px) 250px, 45vw"
+        loading="lazy"
+      %}
+    </a>
   </div>
 </div>
