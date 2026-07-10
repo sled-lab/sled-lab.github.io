@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://sled-lab.github.io//sitemap.xml
+Sitemap: https://sled-lab.github.io/sitemap.xml
