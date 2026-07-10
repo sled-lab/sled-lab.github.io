@@ -59,6 +59,8 @@ SLED Lab, the <u>S</u>ystems & <u>L</u>earning for <u>E</u>dge Devices <u>L</u>a
         alt="Learning-based system optimization"
         caption="A. EarDVFS (ICCAD 2025)"
         sizes="(min-width: 576px) 250px, 45vw"
+        width=1095
+        height=1095
         loading="lazy"
       %}
     </a>
@@ -77,6 +79,8 @@ SLED Lab, the <u>S</u>ystems & <u>L</u>earning for <u>E</u>dge Devices <u>L</u>a
         alt="Battery and power management"
         caption="B. MixMax (MobiSys 2023)"
         sizes="(min-width: 576px) 250px, 45vw"
+        width=1280
+        height=1280
         loading="lazy"
       %}
     </a>
@@ -95,6 +99,8 @@ SLED Lab, the <u>S</u>ystems & <u>L</u>earning for <u>E</u>dge Devices <u>L</u>a
         alt="Scheduling algorithms and frameworks"
         caption="C. RET (RTSS 2019)"
         sizes="(min-width: 576px) 250px, 45vw"
+        width=1060
+        height=1060
         loading="lazy"
       %}
     </a>

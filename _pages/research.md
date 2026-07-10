@@ -5,6 +5,8 @@ title: Research
 description:
 nav: true
 nav_order: 1
+images:
+  medium_zoom: true
 _styles: |
   article p:has(+ ul) {
     margin-bottom: 0.25rem;
