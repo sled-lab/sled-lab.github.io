@@ -113,11 +113,40 @@ h2.post-title {
   }
 }
 
+/* Home research grid. Mobile: 2-up at 50%, slightly tighter 10px gutters
+   (row margin matches so the outer edges stay aligned with the text), and
+   justify-content centers the lone third image on its own line. Desktop:
+   extra side padding shrinks the images inside their columns. */
 @media (max-width: 575.98px) {
-  .research-area-grid > .col-sm-3 {
+  .research-area-grid {
+    justify-content: center;
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  .research-area-grid > .col-sm-4 {
     flex: 0 0 50%;
     width: 50%;
     max-width: 50%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  /* Keep every caption on one line: "B. MixMax (MobiSys 2023)" is 167px at
+     14px Roboto, wider than the 50% column's content box even with no
+     gutters, so the caption spans the gutter (negative margins) and drops
+     to 13px — fits down to 360px-wide viewports. */
+  .research-area-grid .caption {
+    font-size: 0.9rem;
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+
+@media (min-width: 576px) {
+  .research-area-grid > .col-sm-4 {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 
