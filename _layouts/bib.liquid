@@ -7,7 +7,11 @@
         {%- if site.data.venues[entry.abbr] -%}
           {% assign venue_style = null %}
           {% if site.data.venues[entry.abbr].color != blank %}
-            {% assign venue_style = site.data.venues[entry.abbr].color | prepend: 'style="background-color:' | append: '"' %}
+            {% assign venue_style = site.data.venues[entry.abbr].color | prepend: 'style="background-color:' %}
+            {% if site.data.venues[entry.abbr].text != blank %}
+              {% assign venue_style = venue_style | append: ';--badge-text:' | append: site.data.venues[entry.abbr].text %}
+            {% endif %}
+            {% assign venue_style = venue_style | append: '"' %}
           {%- endif -%}
           <abbr
             class="badge rounded"
@@ -29,7 +33,11 @@
         {%- if site.data.venues[entry.abbr2] -%}
           {% assign venue_style = null %}
           {% if site.data.venues[entry.abbr2].color != blank %}
-            {% assign venue_style = site.data.venues[entry.abbr2].color | prepend: 'style="background-color:' | append: '"' %}
+            {% assign venue_style = site.data.venues[entry.abbr2].color | prepend: 'style="background-color:' %}
+            {% if site.data.venues[entry.abbr2].text != blank %}
+              {% assign venue_style = venue_style | append: ';--badge-text:' | append: site.data.venues[entry.abbr2].text %}
+            {% endif %}
+            {% assign venue_style = venue_style | append: '"' %}
           {%- endif -%}
           <abbr
             class="badge rounded"
@@ -51,7 +59,11 @@
         {%- if site.data.venues[entry.abbr3] -%}
           {% assign venue_style = null %}
           {% if site.data.venues[entry.abbr3].color != blank %}
-            {% assign venue_style = site.data.venues[entry.abbr3].color | prepend: 'style="background-color:' | append: '"' %}
+            {% assign venue_style = site.data.venues[entry.abbr3].color | prepend: 'style="background-color:' %}
+            {% if site.data.venues[entry.abbr3].text != blank %}
+              {% assign venue_style = venue_style | append: ';--badge-text:' | append: site.data.venues[entry.abbr3].text %}
+            {% endif %}
+            {% assign venue_style = venue_style | append: '"' %}
           {%- endif -%}
           <abbr
             class="badge rounded"
@@ -89,7 +101,7 @@
   {% endif %}
 
   <!-- Entry bib key -->
-  <div id="{{entry.key}}" class="{% if site.enable_publication_thumbnails %}col-sm-10{% else %}col-sm-12{% endif %}">
+  <div id="{{entry.key}}" class="{% if site.enable_publication_thumbnails %}col-sm-9{% else %}col-sm-12{% endif %}">
     <!-- Title -->
     <div class="title">{{ entry.title }}</div>
     <!-- Author -->
@@ -162,12 +174,12 @@
           class="more-authors"
           title="click to view {{more_authors_hide}}"
           onclick="
-              var element = $(this);
-              element.attr('title', '');
-              var more_authors_text = element.text() == '{{more_authors_hide}}' ? '{{more_authors_show}}' : '{{more_authors_hide}}';
+              var element = this;
+              element.setAttribute('title', '');
+              var more_authors_text = element.textContent == '{{more_authors_hide}}' ? '{{more_authors_show}}' : '{{more_authors_hide}}';
               var cursorPosition = 0;
               var textAdder = setInterval(function(){
-                element.html(more_authors_text.substring(0, cursorPosition + 1));
+                element.innerHTML = more_authors_text.substring(0, cursorPosition + 1);
                 if (++cursorPosition == more_authors_text.length){
                   clearInterval(textAdder);
                 }

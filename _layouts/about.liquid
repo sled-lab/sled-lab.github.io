@@ -34,7 +34,7 @@ layout: default
             cache_bust=true
           %}
         {% endif %}
-        {% if page.profile.more_info %}
+        {% if page.profile.more_info != blank %}
           <div class="more-info">{{ page.profile.more_info }}</div>
         {% endif %}
       </div>
@@ -81,7 +81,7 @@ layout: default
       {% include newsletter.liquid center=true %}
     {% endif %}
 
-    {% if page.custom_section %}
+    {% if page.custom_section != blank %}
       <div class="custom-section">
         {{ page.custom_section }}
       </div>

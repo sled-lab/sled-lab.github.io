@@ -1,0 +1,52 @@
+---
+version: 1
+overrides:
+  _includes/news.liquid:
+    owner: al_folio_core
+    gem_version: 1.0.11
+    upstream_path: _includes/news.liquid
+    upstream_sha256: 2a37611539b5b3d59050cc20b8d008ca070e253d953724f6499a422e9b186f63
+    local_sha256: a05e5f0d9c12b28baddd83877ccca87b4ccd89e73d0d302b6451c5aff54a3d7b
+    acknowledged_at: "2026-07-14"
+  _includes/projects.liquid:
+    owner: al_folio_core
+    gem_version: 1.0.11
+    upstream_path: _includes/projects.liquid
+    upstream_sha256: b824fbc63e1fe9cda6280f482ec51db4e6fcbfbbf4e27f55e728664dab9d4f6e
+    local_sha256: f180dc971d0c002c8b8e762b0f8c9137ef42e8bafd260f68b06912f35993254f
+    acknowledged_at: "2026-07-14"
+  _layouts/about.liquid:
+    owner: al_folio_core
+    gem_version: 1.0.11
+    upstream_path: _layouts/about.liquid
+    upstream_sha256: 2c28eb83b71fe65f252202c11f0b4a19a9b6f1faccdc870b4f91c4ea51d0c6f1
+    local_sha256: 4bbefc9e2b8ba1170097f3011f73bd084907a5ec87391be12604c6c27f4befe3
+    acknowledged_at: "2026-07-14"
+  _layouts/bib.liquid:
+    owner: al_folio_core
+    gem_version: 1.0.11
+    upstream_path: _layouts/bib.liquid
+    upstream_sha256: 430311d9b94adf6fb1c2fab7609f6e726efc98e2b50e7b1c4cde0ad654c04506
+    local_sha256: 61e50800f57546e0affef367705efd078219286fcbb693a7ecf6956d2506a379
+    acknowledged_at: "2026-07-14"
+  _layouts/default.liquid:
+    owner: al_folio_core
+    gem_version: 1.0.11
+    upstream_path: _layouts/default.liquid
+    upstream_sha256: 4b713c35f7383692b99f4f1086123acbc3cb247e775a4cebe39985b5302fb9b2
+    local_sha256: 6c0d100028340b7801c9c125c9b8698dd810364bb839a010d299f8a6ac806c11
+    acknowledged_at: "2026-07-13"
+  _layouts/page.liquid:
+    owner: al_folio_core
+    gem_version: 1.0.11
+    upstream_path: _layouts/page.liquid
+    upstream_sha256: eb392ada31cdbe8d1a0f5dbd7229700b5fa7cdf6f4788cbb65d6b746ac3b1231
+    local_sha256: 605f5cc344a3ef3edb0c789d212ca2cd73b1f3c62076ea76ff168262e79034ba
+    acknowledged_at: "2026-07-14"
+  _sass/_themes.scss:
+    owner: al_folio_core
+    gem_version: 1.0.11
+    upstream_path: _sass/_themes.scss
+    upstream_sha256: b581e43dcfbf21c14f388e2b585474c886fad62f6b5a0444f7832e7f69745f1f
+    local_sha256: 93445e503a535192f930a92f59ae01674fbace46cf9e91321fad00b5ebbee90a
+    acknowledged_at: "2026-07-14"

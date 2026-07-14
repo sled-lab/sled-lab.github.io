@@ -8,7 +8,7 @@ img: assets/img/people/me.jpg
 category: Faculty
 description: Assistant Professor
 email: jhkwak@ajou.ac.kr
-research: Supervisor
+research:
 
 profile:
   align: right
@@ -21,7 +21,7 @@ announcements:
   scrollable: true # adds a vertical scroll bar if there are more than 3 news items
   limit: 5 # leave blank to include all the news in the `_news` folder
 
-selected_papers: false # includes a list of papers marked as "selected={true}"
+selected_papers: true # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
 
 custom_section: >
@@ -49,7 +49,7 @@ custom_section: >
 <h4><b>Contacts</b></h4>
 
 E-mail: jhkwak@ajou.ac.kr<br>
-LinkedIn: <a href='https://www.linkedin.com/in/jaehunny/'>linkedin.com/in/jaehunny</a><br>
+LinkedIn: <a href='https://www.linkedin.com/in/jaehunny/' aria-label='Jaeheon Kwak on LinkedIn'><i class='fa-brands fa-linkedin' aria-hidden='true'></i></a><br>
 Office: 606, Paldal Hall, Ajou University<br>
 
 <h4><b>Research Interests</b></h4>

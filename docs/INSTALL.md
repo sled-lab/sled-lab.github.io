@@ -235,7 +235,13 @@ Then simply copy the contents of the `_site/` directory to your hosting server.
 If you also want to remove unused css classes from your file, run:
 
 ```bash
-purgecss -c purgecss.config.js
+purged_css_dir="$(mktemp -d)"
+purgecss --config purgecss.config.js \
+  --css "_site/assets/css/*.css" \
+  --content "_site/**/*.html" "_site/**/*.js" \
+  --output "${purged_css_dir}"
+cp "${purged_css_dir}"/*.css _site/assets/css/
+rm -rf "${purged_css_dir}"
 ```
 
 which will replace the css files in the `_site/assets/css/` folder with the purged css files.

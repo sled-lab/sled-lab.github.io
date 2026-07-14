@@ -9,13 +9,6 @@ _styles: |
   article p:has(+ ul) {
     margin-bottom: 0.25rem;
   }
-
-  @media (min-width: 576px) {
-    article > p,
-    article > ul {
-      width: 100%;
-    }
-  }
 ---
 
 <h3 class="section-divider">On-going projects</h3>

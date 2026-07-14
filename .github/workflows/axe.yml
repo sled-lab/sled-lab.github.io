@@ -49,8 +49,14 @@ jobs:
           bundle exec jekyll build
       - name: Purge unused CSS 🧹
         run: |
-          npm install -g purgecss
-          purgecss -c purgecss.config.js
+          npm install -g purgecss@7.0.2
+          purged_css_dir="$(mktemp -d)"
+          purgecss --config purgecss.config.js \
+            --css "_site/assets/css/*.css" \
+            --content "_site/**/*.html" "_site/**/*.js" \
+            --output "${purged_css_dir}"
+          cp "${purged_css_dir}"/*.css _site/assets/css/
+          rm -rf "${purged_css_dir}"
       - name: Get Chromium version 🌐
         # https://github.com/GoogleChromeLabs/chrome-for-testing?tab=readme-ov-file#other-api-endpoints
         run: |

@@ -4,7 +4,7 @@ title: Ho gi Yoon
 permalink: /hogiyoon
 link: false
 subtitle: Ho gi Yoon (윤호기)
-img: assets/img/people/hogiyoon.jpg
+img: assets/img/people/hogiyoon.png
 category: Students
 description: Undergraduate student
 email: naite09@ajou.ac.kr
@@ -12,7 +12,7 @@ research:
 
 profile:
   align: right
-  image: people/hogiyoon.jpg
+  image: people/hogiyoon.png
   image_circular: true # crops the image to make it circular
   more_info: >
 

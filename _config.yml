@@ -57,7 +57,7 @@ al_folio:
     allow_remote_loader: true
   features:
     distill:
-      enabled: true
+      enabled: false
   compat:
     bootstrap:
       enabled: false
@@ -86,16 +86,16 @@ posts_in_search: false
 bib_search: false
 
 # Dimensions
-max_width: 930px
+max_width: 1024px
 
 # -----------------------------------------------------------------------------
 # Open Graph & Schema.org
 # -----------------------------------------------------------------------------
 # Display links to the page with a preview object on social media.
 # see https://schema.org/docs/faq.html for more information
-serve_og_meta: false # Include Open Graph meta tags in the HTML head
+serve_og_meta: true # Include Open Graph meta tags in the HTML head
 serve_schema_org: false # Include Schema.org in the HTML head
-og_image: # The site-wide (default for all links) Open Graph preview image
+og_image: https://sled-lab.github.io/assets/img/Logo.png # The site-wide (default for all links) Open Graph preview image
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification
@@ -124,7 +124,7 @@ lsi: false # produce an index for related posts
 
 # Pagination
 pagination:
-  enabled: true
+  enabled: false
 
 related_blog_posts:
   enabled: true
@@ -154,17 +154,7 @@ disqus_shortname: al-folio # put your disqus shortname
 # If you have blog posts published on medium.com or other external sources,
 # you can display them in your blog by adding a link to the RSS feed.
 # Optional: Set default categories and tags for posts from each source.
-external_sources:
-  - name: medium.com
-    rss_url: https://medium.com/@al-folio/feed
-    categories: [external-posts]
-    tags: [medium]
-  - name: Google Blog
-    posts:
-      - url: https://blog.google/technology/ai/google-gemini-update-flash-ai-assistant-io-2024/
-        published_date: 2024-05-14
-    categories: [external-posts]
-    tags: [google]
+external_sources: []
 
 # -----------------------------------------------------------------------------
 # Newsletter
@@ -211,8 +201,10 @@ kramdown:
 # Includes & excludes
 include: ["_pages"]
 exclude:
+  - AGENTS.md
   - al-folio-upgrade-report.md
   - bin/
+  - CLAUDE.md
   - CONTRIBUTING.md
   - CUSTOMIZE.md
   - Dockerfile
@@ -231,8 +223,11 @@ exclude:
   - purgecss.config.js
   - README.md
   - readme_preview/
+  - requirements.txt
   - gems/
   - migrations/
+  - test/
+  - tmp/
   - vendor
 keep_files:
   - CNAME
@@ -275,11 +270,8 @@ plugins:
   - al_citations
   - al_ext_posts
   - al_img_tools
-  - al_search
-  - al_charts
   - al_math
   - al_comments
-  - al_newsletter
 
 # Sitemap settings
 defaults:
@@ -290,6 +282,7 @@ defaults:
 
 sass:
   style: compressed
+  sourcemap: never
 
 # -----------------------------------------------------------------------------
 # Jekyll Minifier
@@ -493,7 +486,7 @@ third_party_libraries:
     integrity:
       css: "sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw="
     url:
-      css: "https://cdn.jsdelivr.net/npm/academicons@{{version}}/css/academicons.min.css"
+      css: "" # Disabled: the current site does not render any ai-* icons.
     version: "1.9.5"
   chartjs:
     integrity:
@@ -527,7 +520,7 @@ third_party_libraries:
     version: "5.5.0"
   google_fonts:
     url:
-      fonts: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&display=swap"
+      fonts: "https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300..700&display=swap"
   highlightjs:
     integrity:
       css:
@@ -634,7 +627,7 @@ third_party_libraries:
     integrity:
       css: "sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY="
     url:
-      css: "https://cdn.jsdelivr.net/npm/scholar-icons@{{version}}/css/scholar-icons.css"
+      css: "" # Disabled: the current site does not render any si-* icons.
     version: "1.0.3"
   vanilla-back-to-top:
     integrity:

@@ -29,6 +29,172 @@ test("publication popover works without bootstrap compat runtime", async ({ page
   await expect(page.locator(".af-popover")).toBeVisible();
 });
 
+test("publication venue badges share one width and use Tailwind category colors", async ({ page }) => {
+  await preparePage(page, "light");
+  await page.goto("/al-folio/publications/", { waitUntil: "networkidle" });
+  await stabilizeVisuals(page);
+
+  const expectedColorTokens = {
+    Next: { background: "oklch(51.1% 0.096 186.391)", text: "oklch(98.4% 0.014 180.72)" },
+    AI: { background: "oklch(85.5% 0.138 181.071)", text: "oklch(27.7% 0.046 192.524)" },
+    "Real-time": { background: "oklch(78.5% 0.115 274.713)", text: "oklch(25.7% 0.09 281.288)" },
+    System: { background: "oklch(45.7% 0.24 277.023)", text: "oklch(96.2% 0.018 272.314)" },
+    Healthcare: { background: "oklch(87.1% 0.15 154.449)", text: "oklch(26.6% 0.065 152.934)" },
+    Mobile: { background: "oklch(52.7% 0.154 150.069)", text: "oklch(98.2% 0.018 155.826)" },
+    Battery: { background: "oklch(50% 0.134 242.749)", text: "oklch(97.7% 0.013 236.62)" },
+    Security: { background: "oklch(82.8% 0.111 230.318)", text: "oklch(29.3% 0.066 243.157)" },
+  };
+
+  const badges = await page.locator(".publications .abbr abbr.badge").evaluateAll((elements, colorTokens) => {
+    const canvas = document.createElement("canvas");
+    canvas.width = 1;
+    canvas.height = 1;
+    const context = canvas.getContext("2d");
+    const toRgb = (color) => {
+      context.clearRect(0, 0, 1, 1);
+      context.fillStyle = color;
+      context.fillRect(0, 0, 1, 1);
+      const [red, green, blue] = context.getImageData(0, 0, 1, 1).data;
+      return `rgb(${red}, ${green}, ${blue})`;
+    };
+
+    return elements.map((element) => {
+      const badgeStyle = window.getComputedStyle(element);
+      const label = element.querySelector("a, div") ?? element;
+      const labelText = element.textContent.trim();
+      const expected = colorTokens[labelText];
+      return {
+        label: labelText,
+        width: element.getBoundingClientRect().width,
+        backgroundColor: toRgb(badgeStyle.backgroundColor),
+        color: toRgb(badgeStyle.color),
+        labelColor: toRgb(window.getComputedStyle(label).color),
+        expectedBackgroundColor: expected ? toRgb(expected.background) : null,
+        expectedTextColor: expected ? toRgb(expected.text) : null,
+      };
+    });
+  }, expectedColorTokens);
+
+  expect(badges.length).toBeGreaterThan(0);
+  for (const badge of badges) {
+    expect(badge.width).toBeCloseTo(112, 1);
+  }
+
+  for (const badge of badges) {
+    expect(badge.expectedBackgroundColor, `missing color contract for ${badge.label}`).not.toBeNull();
+    expect(badge.backgroundColor).toBe(badge.expectedBackgroundColor);
+    expect(badge.color).toBe(badge.expectedTextColor);
+    expect(badge.labelColor).toBe(badge.expectedTextColor);
+  }
+});
+
+test("publication labels and News dates use compact aligned columns", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name === "mobile", "desktop columns collapse or auto-size on mobile");
+  await preparePage(page, "light");
+
+  await page.goto("/al-folio/publications/", { waitUntil: "networkidle" });
+  const publicationColumns = await page.evaluate(() => {
+    const row = document.querySelector(".publications .row");
+    const label = row?.querySelector(":scope > .abbr");
+    const content = row?.querySelector(":scope > [id]");
+    if (!row || !label || !content) return null;
+    const rowBox = row.getBoundingClientRect();
+    return {
+      labelWidth: label.getBoundingClientRect().width,
+      contentOffset: content.getBoundingClientRect().x - rowBox.x,
+    };
+  });
+
+  await page.goto("/al-folio/news/", { waitUntil: "networkidle" });
+  const newsColumns = await page.evaluate(() => {
+    const table = document.querySelector(".news table");
+    const date = table?.querySelector(".news-date");
+    const content = table?.querySelector(".news-content");
+    if (!table || !date || !content) return null;
+    const tableBox = table.getBoundingClientRect();
+    return {
+      labelWidth: date.getBoundingClientRect().width,
+      contentOffset: content.getBoundingClientRect().x - tableBox.x,
+      datePaddingLeft: Number.parseFloat(window.getComputedStyle(date).paddingLeft),
+      contentPaddingLeft: Number.parseFloat(window.getComputedStyle(content).paddingLeft),
+    };
+  });
+
+  for (const columns of [publicationColumns, newsColumns]) {
+    expect(columns).not.toBeNull();
+    expect(columns.labelWidth).toBeCloseTo(144, 1);
+    expect(columns.contentOffset).toBeCloseTo(144, 1);
+  }
+  expect(newsColumns.datePaddingLeft).toBe(0);
+  expect(newsColumns.contentPaddingLeft).toBe(0);
+});
+
+test("site design contract keeps legacy type sizes with the 1024px container", async ({ page }) => {
+  await preparePage(page, "light");
+  await page.goto("/al-folio/publications/", { waitUntil: "networkidle" });
+  await page.evaluate(() => document.fonts.ready);
+
+  const contract = await page.evaluate(() => {
+    const stylesFor = (selector) => {
+      const element = document.querySelector(selector);
+      if (!element) return null;
+      const computed = window.getComputedStyle(element);
+      return {
+        fontFamily: computed.fontFamily,
+        fontSize: Number.parseFloat(computed.fontSize),
+        paddingTop: Number.parseFloat(computed.paddingTop),
+        paddingRight: Number.parseFloat(computed.paddingRight),
+        paddingBottom: Number.parseFloat(computed.paddingBottom),
+        paddingLeft: Number.parseFloat(computed.paddingLeft),
+        marginTop: Number.parseFloat(computed.marginTop),
+        marginBottom: Number.parseFloat(computed.marginBottom),
+      };
+    };
+
+    const container = document.querySelector(".page-container");
+    return {
+      maxContentWidth: window.getComputedStyle(document.documentElement).getPropertyValue("--max-content-width").trim(),
+      containerWidth: container?.getBoundingClientRect().width ?? null,
+      viewportWidth: document.documentElement.clientWidth,
+      horizontalOverflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+      body: stylesFor("body"),
+      pageTitle: stylesFor(".post-title"),
+      sectionTitle: stylesFor(".publications h2.bibliography"),
+      badge: stylesFor(".publications .abbr .badge"),
+      publicationLinks: stylesFor(".publications .links"),
+      publicationButton: stylesFor(".publications .links .btn"),
+    };
+  });
+
+  expect(contract.maxContentWidth).toBe("1024px");
+  expect(contract.containerWidth).toBeCloseTo(Math.min(contract.viewportWidth, 1024), 0);
+  expect(contract.horizontalOverflow).toBeLessThanOrEqual(0);
+
+  for (const sample of [contract.body, contract.pageTitle, contract.sectionTitle, contract.badge, contract.publicationButton]) {
+    expect(sample).not.toBeNull();
+    expect(sample.fontFamily).toContain("Noto Sans KR");
+  }
+
+  expect(contract.body.fontSize).toBeCloseTo(16, 2);
+  expect(contract.pageTitle.fontSize).toBeCloseTo(32, 2);
+  expect(contract.sectionTitle.fontSize).toBeCloseTo(28, 2);
+  expect(contract.badge.fontSize).toBeCloseTo(12.4, 2);
+  expect(contract.publicationButton.fontSize).toBeCloseTo(11.52, 2);
+
+  expect(contract.badge.paddingTop).toBeCloseTo(7, 2);
+  expect(contract.badge.paddingBottom).toBeCloseTo(7, 2);
+  expect(contract.publicationButton.paddingTop).toBeCloseTo(6, 2);
+  expect(contract.publicationButton.paddingBottom).toBeCloseTo(6, 2);
+  expect(contract.publicationLinks.marginTop).toBeCloseTo(6, 2);
+  expect(contract.publicationLinks.marginBottom).toBeCloseTo(6, 2);
+
+  for (const sample of [contract.badge, contract.publicationButton]) {
+    expect(sample.paddingRight).toBeCloseTo(16, 2);
+    expect(sample.paddingLeft).toBeCloseTo(16, 2);
+  }
+  expect(contract.badge.marginBottom).toBeCloseTo(8, 2);
+});
+
 test("mobile navbar can expand/collapse", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "mobile", "mobile-only navigation behavior");
 
@@ -159,7 +325,7 @@ test("related posts are wrapped in a valid list", async ({ page }) => {
   expect(relatedLinkWeight).toBeLessThanOrEqual(400);
 });
 
-test("inline code uses compact normal-weight typography", async ({ page }) => {
+test("inline code uses compact Noto Sans KR typography", async ({ page }) => {
   await preparePage(page, "light");
   await page.goto("/al-folio/blog/2023/sidebar-table-of-contents/", { waitUntil: "networkidle" });
   await stabilizeVisuals(page);
@@ -172,12 +338,14 @@ test("inline code uses compact normal-weight typography", async ({ page }) => {
     const computed = window.getComputedStyle(candidate);
     const numericWeight = Number.parseInt(computed.fontWeight, 10);
     return {
+      fontFamily: computed.fontFamily,
       fontSize: Number.parseFloat(computed.fontSize),
       fontWeight: Number.isNaN(numericWeight) ? (computed.fontWeight === "bold" ? 700 : 400) : numericWeight,
     };
   });
 
   expect(inlineCodeStyle).not.toBeNull();
+  expect(inlineCodeStyle.fontFamily).toContain("Noto Sans KR");
   expect(inlineCodeStyle.fontSize).toBeLessThan(16);
   expect(inlineCodeStyle.fontWeight).toBeLessThanOrEqual(400);
 });

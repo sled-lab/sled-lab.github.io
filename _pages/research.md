@@ -8,12 +8,8 @@ nav_order: 1
 images:
   medium_zoom: true
 _styles: |
-  article p:has(+ ul) {
-    margin-bottom: 0.25rem;
-  }
-
   /* Text-left / figure-right rows. `no-gutters` keeps the row inside the
-     930px article width. The theme grid only ships col-sm-{2,3,4,6,8,9,10,12},
+     1024px article width. The theme grid only ships col-sm-{2,3,4,6,8,9,10,12},
      so the 7/5 split is defined here (page styles are unlayered and win over
      the gem's @layer rules); padding-right restores the gutter between columns. */
   .research-area .row {
@@ -31,7 +27,7 @@ _styles: |
     .research-area .col-sm-7 {
       flex: 0 0 64.5%;
       max-width: 64.5%;
-      padding-right: 1.5rem;
+      padding-right: 1rem;
     }
 
     .research-area .col-sm-5 {
@@ -171,6 +167,7 @@ SLED Lab builds system software for the layer where computing meets the physical
         <a href="{{ '/assets/pdf/19-batteryagingdeceleration.pdf' | relative_url }}">Battery Aging Deceleration… (RTSS 2019)</a><br>
         <a href="{{ '/assets/pdf/20-nonpreemptive.pdf' | relative_url }}">Non-Preemptive Real-Time Multiprocessor Scheduling… (RTSS 2020)</a><br>
         <a href="{{ '/assets/pdf/23-batteryagingaware.pdf' | relative_url }}">Battery-Aging-Aware Run-Time Slack Management… (JSA 2023)</a>
+        <a href="{{ '/publications' | relative_url }}">CoRT: Supporting Hard and Soft Real-Time Tasks… (ICCAD 2026)</a>
       </p>
     </div>
     <div class="col-sm-5">
