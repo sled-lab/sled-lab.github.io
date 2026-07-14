@@ -8,26 +8,25 @@
   text: "oklch(98.4% 0.014 180.72)" # teal-50
 
 "Real-time":
-  color: "oklch(78.5% 0.115 274.713)" # indigo-300
-  text: "oklch(25.7% 0.09 281.288)" # indigo-950
+  color: "oklch(80.9% 0.105 251.813)" # blue-300
+  text: "oklch(28.2% 0.091 267.935)" # blue-950
 
 "System":
-  color: "oklch(45.7% 0.24 277.023)" # indigo-700
-  text: "oklch(96.2% 0.018 272.314)" # indigo-50
+  color: "oklch(50% 0.134 242.749)" # sky-700
+  text: "oklch(97.7% 0.013 236.62)" # sky-50
 
 "Mobile":
   color: "oklch(85.5% 0.138 181.071)" # teal-300
   text: "oklch(27.7% 0.046 192.524)" # teal-950
 
 "Healthcare":
-  color: "oklch(87.1% 0.15 154.449)" # green-300
-  text: "oklch(26.6% 0.065 152.934)" # green-950
+  color: "oklch(84.5% 0.143 164.978)" # emerald-300
+  text: "oklch(26.2% 0.051 172.552)" # emerald-950
 
 "Battery":
-  color: "oklch(52.7% 0.154 150.069)" # green-700
-  text: "oklch(98.2% 0.018 155.826)" # green-50
+  color: "oklch(50.8% 0.118 165.612)" # emerald-700
+  text: "oklch(97.9% 0.021 166.113)" # emerald-50
 
 "Security":
-  color: "oklch(50% 0.134 242.749)" # sky-700
-  text: "oklch(97.7% 0.013 236.62)" # sky-50
-
+  color: "oklch(48.8% 0.243 264.376)" # blue-700
+  text: "oklch(97% 0.014 254.604)" # blue-50

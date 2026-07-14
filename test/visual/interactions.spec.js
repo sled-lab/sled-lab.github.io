@@ -35,14 +35,14 @@ test("publication venue badges share one width and use Tailwind category colors"
   await stabilizeVisuals(page);
 
   const expectedColorTokens = {
-    Next: { background: "oklch(51.1% 0.096 186.391)", text: "oklch(98.4% 0.014 180.72)" },
-    AI: { background: "oklch(85.5% 0.138 181.071)", text: "oklch(27.7% 0.046 192.524)" },
-    "Real-time": { background: "oklch(78.5% 0.115 274.713)", text: "oklch(25.7% 0.09 281.288)" },
-    System: { background: "oklch(45.7% 0.24 277.023)", text: "oklch(96.2% 0.018 272.314)" },
-    Healthcare: { background: "oklch(87.1% 0.15 154.449)", text: "oklch(26.6% 0.065 152.934)" },
-    Mobile: { background: "oklch(52.7% 0.154 150.069)", text: "oklch(98.2% 0.018 155.826)" },
-    Battery: { background: "oklch(50% 0.134 242.749)", text: "oklch(97.7% 0.013 236.62)" },
-    Security: { background: "oklch(82.8% 0.111 230.318)", text: "oklch(29.3% 0.066 243.157)" },
+    Next: { background: "oklch(82.8% 0.111 230.318)", text: "oklch(29.3% 0.066 243.157)" },
+    AI: { background: "oklch(51.1% 0.096 186.391)", text: "oklch(98.4% 0.014 180.72)" },
+    "Real-time": { background: "oklch(80.9% 0.105 251.813)", text: "oklch(28.2% 0.091 267.935)" },
+    System: { background: "oklch(48.8% 0.243 264.376)", text: "oklch(97% 0.014 254.604)" },
+    Healthcare: { background: "oklch(84.5% 0.143 164.978)", text: "oklch(26.2% 0.051 172.552)" },
+    Mobile: { background: "oklch(85.5% 0.138 181.071)", text: "oklch(27.7% 0.046 192.524)" },
+    Battery: { background: "oklch(50.8% 0.118 165.612)", text: "oklch(97.9% 0.021 166.113)" },
+    Security: { background: "oklch(50% 0.134 242.749)", text: "oklch(97.7% 0.013 236.62)" },
   };
 
   const badges = await page.locator(".publications .abbr abbr.badge").evaluateAll((elements, colorTokens) => {
