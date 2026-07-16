@@ -253,9 +253,13 @@ ol ol {
    because the Tailwind shim ships `.w-100 { width:100% !important }` inside a
    cascade layer. Use one explicit width at every breakpoint so short and long
    labels stay aligned. max-width only lets the badges contract at the narrowest
-   desktop widths instead of overlapping the publication text. */
+   desktop widths instead of overlapping the publication text.
+   content-box opts out of tailwind.css's global border-box preflight: the box
+   model must read 16px padding | 70px content | 16px padding (102px total),
+   and the longest venue label, bold "Healthcare" (~68px), needs the full 70. */
 .publications .abbr abbr.badge {
-  width: 7rem;
+  box-sizing: content-box;
+  width: 70px;
   max-width: 100%;
 }
 
