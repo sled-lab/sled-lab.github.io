@@ -29,7 +29,7 @@ latest_posts:
 
 <div class="section-divider"></div>
 
-SLED Lab, the <u>S</u>ystems & <u>L</u>earning for <u>E</u>dge Devices <u>L</u>aboratory, explores where systems meet the physical world — power, heat, batteries, microarchitecture, and processors. We replace hand-tuned rules with learning, domain expertise, and scheduling theory, validated on edge devices from smartphones to electric vehicles.
+SLED Lab, the <u>S</u>ystems & <u>L</u>earning for <u>E</u>dge Devices <u>L</u>aboratory, explores where systems meet the physical world — power, heat, batteries, microarchitecture, and processors. We replace hand-tuned rules with learning, domain expertise, and scheduling theory, validated on edge devices from smartphones to EVs.
 
 ##### **We are always looking for motivated students to join us — please see [Contact]({{ '/contact/' | relative_url }}).**
 
@@ -40,10 +40,14 @@ SLED Lab, the <u>S</u>ystems & <u>L</u>earning for <u>E</u>dge Devices <u>L</u>a
 <h4>
   <a class="home-section-link" href="{{ research_url }}"><b>Research areas</b></a>
 </h4>
-
+<!-- 
 <a class="research-area-summary-link" href="{{ research_url }}">A. Learning-based system optimization</a>\
 <a class="research-area-summary-link" href="{{ research_url }}">B. System-level support for battery & energy</a>\
-<a class="research-area-summary-link" href="{{ research_url }}">C. Novel resource management framework</a>
+<a class="research-area-summary-link" href="{{ research_url }}">C. Novel resource management framework</a> -->
+
+A. Learning-based system optimization\
+B. System-level support for battery & energy\
+C. Novel resource management framework
 
 <div class="row research-area-grid">
   <div class="col-sm-4">

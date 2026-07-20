@@ -33,7 +33,7 @@ custom_section: >
     </ul>
   <li> Artifact evaluation committee</li>
     <ul style="padding-left:20px;">
-    <li> IEEE RTSS (2025) </li>
+    <li> IEEE RTSS (2025, 2026) </li>
     </ul>
   </ul>
 ---
@@ -56,14 +56,14 @@ Office: 606, Paldal Hall, Ajou University<br>
 <ul style="padding-left:20px;">
 <li> Mobile systems</li>
   <ul style="padding-left:20px;">
-  <li>Dynamic voltage and frequency scaling, On-device AI</li>
+  <li>Dynamic voltage and frequency scaling · on-device AI </li>
   </ul>
 <li> Battery/power/thermal management</li>
   <ul style="padding-left:20px;">
-  <li>Battery modeling, voltage regulator, thermal throttling</li>
+  <li>Battery modeling · voltage regulator · thermal throttling</li>
   </ul>
 <li> Real-time systems</li>
   <ul style="padding-left:20px;">
-  <li>Non-preemptive tasks, non-work-conserving scheduling</li>
+  <li>Non-preemptive tasks · non-work-conserving scheduling</li>
   </ul>
 </ul>
