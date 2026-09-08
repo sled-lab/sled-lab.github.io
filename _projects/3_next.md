@@ -1,9 +1,9 @@
 ---
 layout: about
-title: Be the fourth!
+title: Be the third!
 permalink: /next
 link: false
-subtitle: Be the fourth!
+subtitle: Be the third!
 img: assets/img/people/next.png
 category: Students
 description: Join our lab!

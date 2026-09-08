@@ -13,7 +13,7 @@ _styles: |
      so the 7/5 split is defined here (page styles are unlayered and win over
      the gem's @layer rules); padding-right restores the gutter between columns. */
   .research-area .row {
-    align-items: flex-start;
+    align-items: center;
   }
 
   .research-area .col-sm-7,
@@ -62,7 +62,7 @@ _styles: |
 
 <h3 class="section-divider"></h3>
 
-SLED Lab develops system software for computing platforms that interact with the physical world. We combine learning, scheduling, and domain knowledge to make edge, battery-powered, and AI systems more adaptive, efficient, and reliable.
+SLED Lab builds system software for the layer where computing meets the physical world — processors, batteries, power, and heat — on edge devices from smartphones to electric vehicles. Today this software follows rules fixed at design time, blind to each device's workload, user, and environment; we replace those rules with run-time learning, grounded in scheduling theory and domain expertise. Our results range from DVFS governors that learn their thermal surroundings (ICCAD 2025) to smartphone batteries that cut users' low-battery time (MobiSys 2023) and schedulers that more than double battery lifespan (RTSS 2019); we are now bringing the same principles to AI agents and LLM serving.
 
 #### **A. Learning-based system optimization**
 
@@ -74,10 +74,13 @@ SLED Lab develops system software for computing platforms that interact with the
   <div class="row no-gutters">
     <div class="col-sm-7">
       <p>
-        We develop learning-based systems that adapt to changing workloads and environments. Our work spans resource
-        management and on-device applications, including power control, energy
-        prediction, and contactless health monitoring. These methods support adaptive operation across mobile and
-        embedded platforms.
+        Rule-based system software — DVFS governors, thermal throttling — is tuned by vendors for universal use
+        cases, so it cannot adapt to each app's workload or the device's thermal environment.
+        <strong>EarDVFS</strong> (ICCAD 2025) is a reinforcement-learning DVFS governor that steers, rather than
+        replaces, the vendor-tuned governor, improving power efficiency by <strong>21.6% on average</strong>.
+        The same learning-driven approach powers on-device applications, from contactless arrhythmia diagnosis
+        with radar (<strong>mCardiacDx</strong>, JTEHM 2026) to real-time per-app energy prediction
+        (<strong>Serenus</strong>, UIST 2024).
       </p>
       <p class="rep-pubs">
         <strong>Representative:</strong><br>
@@ -111,9 +114,12 @@ SLED Lab develops system software for computing platforms that interact with the
   <div class="row no-gutters">
     <div class="col-sm-7">
       <p>
-        We design system-level methods that improve how batteries are configured, charged, and used across diverse
-        applications. Our work supports efficient, reliable operation in mobile devices, large-scale battery systems,
-        and electric-vehicle infrastructure.
+        A battery's real capability is set not only by its chemistry but by the system software that charges,
+        discharges, and combines its cells. <strong>MixMax</strong> (MobiSys 2023) mixes three complementary
+        battery types on a smartphone and co-optimizes their ratio and charge/discharge policies, cutting
+        users' low-battery time by <strong>up to 24.6%</strong>. The same system-level approach extends to
+        large-scale battery systems and EV infrastructure, from reconfiguration-assisted charging (TII 2024)
+        to wait-time-guaranteed battery swap stations (RTAS 2025).
       </p>
       <p class="rep-pubs">
         <strong>Representative:</strong><br>
@@ -148,9 +154,13 @@ SLED Lab develops system software for computing platforms that interact with the
   <div class="row no-gutters">
     <div class="col-sm-7">
       <p>
-        We develop scheduling and resource-management frameworks that provide predictable performance while
-        improving energy efficiency and system lifetime. We are extending these ideas to emerging AI-agent and
-        LLM-serving workloads.
+        Scheduling shapes the physical behavior of a system, not just its deadlines. We showed that task
+        scheduling systematically affects battery aging (<strong>RTSS 2019</strong>): our
+        <strong>RET (Reserved Execution Time)</strong> framework keeps offline timing guarantees intact while
+        runtime heuristics flatten the power draw, extending battery lifespan by <strong>up to 144.4%</strong>.
+        We are now carrying these principles to AI-agent workloads: <strong>cache- and
+        microarchitecture-aware CPU affinity management</strong> speeds up concurrently running AI agents
+        (under submission), a first step toward power- and thermal-aware scheduling for LLM-serving systems.
       </p>
       <p class="rep-pubs">
         <strong>Representative:</strong><br>

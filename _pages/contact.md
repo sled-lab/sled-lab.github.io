@@ -20,27 +20,53 @@ _styles: |
 
 <h3 class="section-divider">Recruiting</h3>
 
-##### **대학원생/학부연구생 모집 중!**
+##### **SLED Lab 학부연구생 및 대학원생 모집**
 
-대학원 진학을 희망하거나 저와 최소 1년 이상 함께 연구할 학부 연구생을 모집합니다.\
-또한 [BK21 AI 융합 네트워크 학과](https://ai-nets.ajou.ac.kr/ai-nets/index.do)에 진학할 대학원생을 모집합니다.
+- **대상:** 1년 이상 참여 가능한 학부연구생(3·4학년) 또는 대학원 진학 희망자
+- **인원:** 분야별 1명, 총 2명
+- **제출 서류:** 성적표 필수, CV 선택(1페이지 미만)
+- **지원 마감:** 2026.09.30
+- **업무 시작:** 2026.11.01
+- **중복 지원 가능**
 
-**대학원생 지원:** 학비 전액 지원 + 인건비 + 탑티어 컨퍼런스 논문 게재를 위한 주 1회 연구 지도\
-**학부연구생 지원:** 인건비 + 주 1회 연구 지도
+**1. 배터리 특성을 고려한 강화학습 기반 시스템 관리**
 
-관심이 있다면 제 이메일로 이력서와 성적표를 보내주세요.\
-(jhkwak@ajou.ac.kr)
+배터리 상태와 전력 변환 효율을 고려한 강화학습 기반 시스템 최적화를 연구합니다.
 
-##### **Recruiting graduate/undergraduate students!**
+**관련 키워드:** Reinforcement Learning, BMS, DVFS, Power Management, Battery Modeling, DC–DC Converter Efficiency
 
-I am looking for undergraduate researchers planning to pursue graduate studies or willing to work for at least one year.\
-I am also recruiting graduate student applicants for the [BK21 AI Convergence Network program](https://www.ajou.ac.kr/ai-nets_eng/index.do).
+**2. 로컬 LLM 및 AI 에이전트의 성능·전력 최적화**
 
-**Graduate Support:** Full tuition support + stipend + weekly research mentoring for top-tier conference publications\
-**Undergraduate Research Intern Support:** stipend + weekly research mentoring
+로컬 LLM과 AI 에이전트의 성능을 높이고 전력 소모를 줄이는 연산 최적화 기법을 연구합니다.
 
-If you are interested, please email me your CV and transcript.\
-(jhkwak@ajou.ac.kr)
+**관련 키워드:** On-Device LLMs, AI Agents, LLM Inference, Agent Scheduling, CPU/GPU Scheduling, Heterogeneous Computing
+
+**지원 및 문의:** jhkwak@ajou.ac.kr\
+지원 시 희망 분야를 명시해 주세요.
+
+##### **SLED Lab — Undergraduate and Graduate Student Recruitment**
+
+- **Eligibility:** Third- or fourth-year undergraduates available for at least one year, or prospective graduate students.
+- **Openings:** One student per area, two in total.
+- **Documents:** Academic transcript required; CV optional (less than one page).
+- **Deadline:** 2026.09.30
+- **Start date:** 2026.11.01
+- **Applicants may apply to both areas.**
+
+**1. Battery-Aware System Management with Reinforcement Learning**
+
+We study reinforcement learning–based system optimization that accounts for battery conditions and power conversion efficiency.
+
+**Keywords:** Reinforcement Learning, BMS, DVFS, Power Management, Battery Modeling, DC–DC Converter Efficiency
+
+**2. Performance and Power Optimization for Local LLMs and AI Agents**
+
+We study computational optimization to improve performance and reduce power consumption for local LLMs and AI agents.
+
+**Keywords:** On-Device LLMs, AI Agents, LLM Inference, Agent Scheduling, CPU/GPU Scheduling, Heterogeneous Computing
+
+**Applications & Inquiries:** jhkwak@ajou.ac.kr\
+Please indicate the area(s) you are applying to.
 
 <h3 class="section-divider">Contact</h3>
 
