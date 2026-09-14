@@ -41,8 +41,9 @@ _styles: |
 
 **관련 키워드:** On-Device LLMs, AI Agents, LLM Inference, Agent Scheduling, CPU/GPU Scheduling, Heterogeneous Computing
 
-**지원 및 문의:** jhkwak@ajou.ac.kr\
+**지원 및 문의:** jhkwak@ajou.ac.kr (현재 한국 비자 보유 지원자만 모집 중입니다.)\
 지원 시 희망 분야를 명시해 주세요.
+
 
 ##### **SLED Lab — Undergraduate and Graduate Student Recruitment**
 
@@ -65,8 +66,9 @@ We study computational optimization to improve performance and reduce power cons
 
 **Keywords:** On-Device LLMs, AI Agents, LLM Inference, Agent Scheduling, CPU/GPU Scheduling, Heterogeneous Computing
 
-**Applications & Inquiries:** jhkwak@ajou.ac.kr\
+**Applications & Inquiries:** jhkwak@ajou.ac.kr (Currently we are recruiting only applicants who already hold a Korean visa.)\
 Please indicate the area(s) you are applying to.
+
 
 <h3 class="section-divider">Contact</h3>
 
