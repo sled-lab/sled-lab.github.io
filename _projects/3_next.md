@@ -2,6 +2,7 @@
 layout: about
 title: Be the third!
 permalink: /next
+sitemap: false # recruiting placeholder card, not a real profile page
 link: false
 subtitle: Be the third!
 img: assets/img/people/next.png

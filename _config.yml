@@ -8,10 +8,10 @@ middle_name:
 last_name: Lab
 contact_note: >
 
-description: ""
+description: "SLED Lab (Systems & Learning for Edge Devices) at Ajou University, led by Prof. Jaeheon Kwak: learning-based system optimization, battery & energy management, and resource scheduling for edge devices."
 
 footer_text: "" # Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. # Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.  # Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
-keywords: # jekyll, jekyll-theme, academic-website, portfolio-website # add your own keywords or leave empty
+keywords: SLED Lab, Systems and Learning for Edge Devices, Ajou University, Jaeheon Kwak, 아주대학교, 곽재헌, edge devices, mobile systems, DVFS, battery management, energy-efficient computing, real-time scheduling
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: 🛷 # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
@@ -277,6 +277,17 @@ plugins:
 defaults:
   - scope:
       path: "assets"
+    values:
+      sitemap: false
+  # Google Search Console ownership file: must stay reachable, but is not a page to index.
+  - scope:
+      path: "googlea77b5deff969913d.html"
+    values:
+      sitemap: false
+  # News items render inline on the home/news pages; their standalone pages are unlinked stubs.
+  - scope:
+      path: ""
+      type: "news"
     values:
       sitemap: false
 
