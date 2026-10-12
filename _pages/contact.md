@@ -20,7 +20,7 @@ _styles: |
 
 <h3 class="section-divider">Recruiting</h3>
 
-##### **SLED Lab 학부연구생 및 대학원생 모집**
+~~##### **SLED Lab 학부연구생 및 대학원생 모집 (마감됨)**~~
 
 - **대상:** 1년 이상 참여 가능한 학부연구생(3·4학년) 또는 대학원 진학 희망자
 - **인원:** 분야별 1명, 총 2명
@@ -45,7 +45,7 @@ _styles: |
 지원 시 희망 분야를 명시해 주세요.
 
 
-##### **SLED Lab — Undergraduate and Graduate Student Recruitment**
+~~##### **SLED Lab — Undergraduate and Graduate Student Recruitment (Closed)**~~
 
 - **Eligibility:** Third- or fourth-year undergraduates available for at least one year, or prospective graduate students.
 - **Openings:** One student per area, two in total.
