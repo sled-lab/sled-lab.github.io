@@ -1,9 +1,9 @@
 ---
 layout: about
-title: Ho gi Yoon
+title: Hogi Yoon
 permalink: /hogiyoon
 link: false
-subtitle: Ho gi Yoon (윤호기)
+subtitle: Hogi Yoon (윤호기)
 img: assets/img/people/hogiyoon.png
 category: Students
 description: Undergraduate student

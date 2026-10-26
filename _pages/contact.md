@@ -20,7 +20,23 @@ _styles: |
 
 <h3 class="section-divider">Recruiting</h3>
 
-~~##### **SLED Lab 학부연구생 및 대학원생 모집 (마감됨)**~~
+다음 학기 대학원에 진학할 학생을 모집합니다 (2027 봄).\
+(현재 한국 비자를 보유한 학생만 모집 중)
+
+지원 시 전과목 성적표를 반드시 첨부해야 합니다.
+
+지원: jhkwak@ajou.ac.kr  
+
+<br>
+We are recruiting students to begin graduate studies next semester (Spring 2027).\
+(At this time, we only accept applicants who currently hold a valid Korean visa)
+
+You must include complete academic transcript with your application.
+
+Apply: jhkwak@ajou.ac.kr
+
+
+<!-- ~~##### **SLED Lab 학부연구생 및 대학원생 모집 (마감됨)**~~
 
 - **대상:** 1년 이상 참여 가능한 학부연구생(3·4학년) 또는 대학원 진학 희망자
 - **인원:** 분야별 1명, 총 2명
@@ -67,7 +83,7 @@ We study computational optimization to improve performance and reduce power cons
 **Keywords:** On-Device LLMs, AI Agents, LLM Inference, Agent Scheduling, CPU/GPU Scheduling, Heterogeneous Computing
 
 **Applications & Inquiries:** jhkwak@ajou.ac.kr (Currently we are recruiting only applicants who already hold a Korean visa.)\
-Please indicate the area(s) you are applying to.
+Please indicate the area(s) you are applying to. -->
 
 
 <h3 class="section-divider">Contact</h3>

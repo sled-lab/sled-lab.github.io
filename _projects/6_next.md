@@ -1,10 +1,10 @@
 ---
 layout: about
-title: Be the third!
+title: Be the next!
 permalink: /next
 sitemap: false # recruiting placeholder card, not a real profile page
 link: false
-subtitle: Be the third!
+subtitle: Be the next!
 img: assets/img/people/next.png
 category: Students
 description: Join our lab!
