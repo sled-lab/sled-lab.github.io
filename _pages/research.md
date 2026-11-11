@@ -41,6 +41,15 @@ _styles: |
     font-size: 0.9rem;
   }
 
+  /* Keep enlarged diagrams above the fixed navigation (z-index: 1030). */
+  .medium-zoom-overlay {
+    z-index: 1040;
+  }
+
+  .medium-zoom-image--opened {
+    z-index: 1041;
+  }
+
   /* One line per paper: titles are pre-shortened with an ellipsis so the
      venue stays visible; this clamp is the fallback on narrower viewports. */
   .rep-pubs a {
@@ -81,20 +90,21 @@ SLED Lab develops system software for computing platforms that interact with the
       </p>
       <p class="rep-pubs">
         <strong>Representative:</strong><br>
-        <a href="{{ '/assets/pdf/25-eardvfsenvironment.pdf' | relative_url }}">EarDVFS: Environment-Adaptable RL-based DVFS… (ICCAD 2025)</a><br>
-        <a href="{{ '/assets/pdf/26-mcardiacdxradar.pdf' | relative_url }}">mCardiacDx: Radar-Driven Contactless Monitoring… (JTEHM 2026)</a><br>
-        <a href="{{ '/assets/pdf/24-serenusalleviating.pdf' | relative_url }}">Serenus: Alleviating Low-Battery Anxiety… (UIST 2024)</a>
+        <a href="{% research_paper_url kwak2025iccad %}">EarDVFS: Environment-Adaptable RL-based DVFS… (ICCAD 2025)</a><br>
+        <a href="{% research_paper_url kumar2026jtehm %}">mCardiacDx: Radar-Driven Contactless Monitoring… (JTEHM 2026)</a><br>
+        <a href="{% research_paper_url lee2024serenus %}">Serenus: Alleviating Low-Battery Anxiety… (UIST 2024)</a>
       </p>
     </div>
     <div class="col-sm-5">
+      <!-- Use the original diagram resolution so medium-zoom can enlarge it. -->
       {%
         include figure.liquid
         path="assets/img/research/a-eardvfs.png"
         class="img-fluid rounded z-depth-1"
         alt="EarDVFS reinforcement learning loop"
         caption="EarDVFS learns the environment and steers the vendor-tuned DVFS governor."
-        sizes="(min-width: 576px) 360px, 92vw"
         loading="lazy"
+        avoid_scaling=true
         zoomable=true
       %}
     </div>
@@ -117,10 +127,10 @@ SLED Lab develops system software for computing platforms that interact with the
       </p>
       <p class="rep-pubs">
         <strong>Representative:</strong><br>
-        <a href="{{ '/assets/pdf/23-mixmaxleveraging.pdf' | relative_url }}">MixMax: Leveraging Heterogeneous Batteries… (MobiSys 2023)</a><br>
-        <a href="{{ '/assets/pdf/25-leveragingcustomized.pdf' | relative_url }}">Leveraging Customized Heterogeneous Batteries… (TSUSC 2025)</a><br>
-        <a href="{{ '/assets/pdf/25-schedulingev.pdf' | relative_url }}">Scheduling EV Battery Swap/Charge Operations (RTAS 2025)</a><br>
-        <a href="{{ '/assets/pdf/24-racsupporting.pdf' | relative_url }}">RAC+: Supporting Reconfiguration-Assisted Charging… (TII 2024)</a>
+        <a href="{% research_paper_url kwak2023mixmax %}">MixMax: Leveraging Heterogeneous Batteries… (MobiSys 2023)</a><br>
+        <a href="{% research_paper_url kwak2025tsusc %}">Leveraging Customized Heterogeneous Batteries… (TSUSC 2025)</a><br>
+        <a href="{% research_paper_url kwak2025rtas %}">Scheduling EV Battery Swap/Charge Operations (RTAS 2025)</a><br>
+        <a href="{% research_paper_url kim2024rac %}">RAC+: Supporting Reconfiguration-Assisted Charging… (TII 2024)</a>
       </p>
     </div>
     <div class="col-sm-5">
@@ -130,8 +140,8 @@ SLED Lab develops system software for computing platforms that interact with the
         class="img-fluid rounded z-depth-1"
         alt="MixMax overview"
         caption="MixMax co-optimizes battery composition and charge/discharge policies."
-        sizes="(min-width: 576px) 360px, 92vw"
         loading="lazy"
+        avoid_scaling=true
         zoomable=true
       %}
     </div>
@@ -154,10 +164,10 @@ SLED Lab develops system software for computing platforms that interact with the
       </p>
       <p class="rep-pubs">
         <strong>Representative:</strong><br>
-        <a href="{{ '/assets/pdf/19-batteryagingdeceleration.pdf' | relative_url }}">Battery Aging Deceleration… (RTSS 2019)</a><br>
-        <a href="{{ '/assets/pdf/20-nonpreemptive.pdf' | relative_url }}">Non-Preemptive Real-Time Multiprocessor Scheduling… (RTSS 2020)</a><br>
-        <a href="{{ '/assets/pdf/23-batteryagingaware.pdf' | relative_url }}">Battery-Aging-Aware Run-Time Slack Management… (JSA 2023)</a>
-        <a href="{{ '/publications' | relative_url }}">CoRT: Supporting Hard and Soft Real-Time Tasks… (ICCAD 2026)</a>
+        <a href="{% research_paper_url kwak2019battery %}">Battery Aging Deceleration… (RTSS 2019)</a><br>
+        <a href="{% research_paper_url baek2020non %}">Non-Preemptive Real-Time Multiprocessor Scheduling… (RTSS 2020)</a><br>
+        <a href="{% research_paper_url kwak2023battery %}">Battery-Aging-Aware Run-Time Slack Management… (JSA 2023)</a><br>
+        <a href="{% research_paper_url ha2026iccad %}">CoRT: Supporting Hard and Soft Real-Time Tasks… (ICCAD 2026)</a>
       </p>
     </div>
     <div class="col-sm-5">
@@ -167,8 +177,8 @@ SLED Lab develops system software for computing platforms that interact with the
         class="img-fluid rounded z-depth-1"
         alt="RET framework key idea"
         caption="RET controls execution start times within reserved windows to flatten power draw."
-        sizes="(min-width: 576px) 360px, 92vw"
         loading="lazy"
+        avoid_scaling=true
         zoomable=true
       %}
     </div>

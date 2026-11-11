@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Three new students have joined the SLED Lab. Welcome! 👤👤👤
+Two new students have joined the SLED Lab. Welcome! 👤👤
